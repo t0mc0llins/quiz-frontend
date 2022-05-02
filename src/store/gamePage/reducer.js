@@ -1,11 +1,13 @@
 import { FETCH_CATEGORIES } from "./types";
 
-const initialState = [];
+const initialState = {
+  categories: ["Swen", "Vasileios", "Thom"],
+};
 
 export default function gamePageReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_CATEGORIES:
-      return { ...state, ...action.payload };
+      return { ...state, categories: action.payload };
     default:
       return state;
   }

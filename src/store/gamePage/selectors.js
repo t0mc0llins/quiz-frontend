@@ -1,1 +1,1 @@
-export const selectCategories = (reduxState) => reduxState.categories;
+export const selectCategories = (reduxState) => reduxState.gamePage.categories;
