@@ -1,3 +1,8 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+import question from "./question/reducer";
+
+export default combineReducers({
+  question,
+});
+
