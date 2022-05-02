@@ -7,11 +7,7 @@ export default function QuestionPage() {
   return (
     <Container fixed maxwidth="lg">
       <Typography
-        sx={{
-          p: 3,
-          color: "primary.main",
-          fontFamily: `'Happy Monkey', cursive`,
-        }}
+        sx={{ p: 3, color: "primary.main" }}
         variant="h3"
         gutterBottom
         component="div"
