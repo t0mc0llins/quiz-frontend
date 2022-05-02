@@ -1,4 +1,11 @@
-.Wheel {
+
+
+body {
+  background: linear-gradient(to left, rgb(138, 52, 52), rgb(97, 97, 199));
+}
+
+.App {
+
   font-family: sans-serif;
   text-align: center;
 }

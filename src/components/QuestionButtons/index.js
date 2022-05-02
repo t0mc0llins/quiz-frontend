@@ -3,15 +3,15 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 
-export default function RowAndColumnSpacing() {
+export default function QuestionButtons() {
   return (
-    <Box sx={{ mt: 5, mb: 5 }}>
+    <Box sx={{ mt: 5 }}>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <Button
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -27,7 +27,7 @@ export default function RowAndColumnSpacing() {
           <Button
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -43,7 +43,7 @@ export default function RowAndColumnSpacing() {
           <Button
             color="secondary"
             xs={6}
-            sx={{ p: 6, borderRadius: "15px", width: 1 }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -59,7 +59,7 @@ export default function RowAndColumnSpacing() {
           <Button
             color="secondary"
             xs={6}
-            sx={{ p: 6, borderRadius: "15px", width: 1 }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
