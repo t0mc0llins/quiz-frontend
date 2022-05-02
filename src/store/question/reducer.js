@@ -1,7 +1,9 @@
-import { fetched_four_movies } from "./types";
+import { fetched_four_movies, generate_year_questions } from "./types";
 
 const initialState = {
   fourMovies: [],
+  yearRightAnswers: [],
+  yearWrongAnswers: [],
 };
 
 export default function questionSliceReducer(state = initialState, action) {
@@ -10,6 +12,13 @@ export default function questionSliceReducer(state = initialState, action) {
       return {
         ...state,
         fourMovies: [...action.payload],
+      };
+    }
+    case generate_year_questions: {
+      return {
+        ...state,
+        yearRightAnswers: action.payload.rightAnswers,
+        yearWrongAnswers: action.payload.wrongAnswers,
       };
     }
     default: {
