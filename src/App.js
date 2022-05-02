@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import YearQuiz from "./components/YearQuiz";
 import GamePage from "./pages/GamePage";
 import HomePage from "./pages/HomePage";
 import QuestionPage from "./pages/QuestionPage";
@@ -10,6 +11,7 @@ function App() {
         <Route path="/game" element={<GamePage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/question" element={<QuestionPage />} />
+        <Route path="/year" element={<YearQuiz />} />
       </Routes>
     </div>
   );
