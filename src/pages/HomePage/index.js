@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllMovies } from "../../store/homePage/actions";
 import { selectMovies } from "../../store/homePage/selectors";
-import { ImageList, ImageListItem, Container, Button } from "@mui/material";
+import {
+  ImageList,
+  ImageListItem,
+  Container,
+  Link,
+  Typography,
+} from "@mui/material";
 import { apiUrlPoster } from "../../config/constants";
 import "./style.css";
+// import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -18,9 +25,18 @@ export default function HomePage() {
   return (
     <>
       {/* <h1>Welcome to Movie Quiz</h1> */}
-      <ImageList variant="quilted" cols={4} rowHeight={195}>
+      <Container className="overlay"></Container>
+      <Typography className="home-page-title">
+        <h1>Welcome to Movie Quiz</h1>
+      </Typography>
+      <ImageList
+        className="image-list-container"
+        variant="quilted"
+        cols={4}
+        rowHeight={191}
+      >
         {listOfMovies.map((item) => (
-          <ImageListItem key={item.id}>
+          <ImageListItem className="image-list-item" key={item.id}>
             <img
               alt={item.title}
               loading="lazy"
@@ -29,7 +45,10 @@ export default function HomePage() {
           </ImageListItem>
         ))}
       </ImageList>
-      <Button className="home-page-button">Start Game</Button>
+      <Link href="/game" className="home-page-button">
+        Start Game
+      </Link>
+      {/* <Button className="home-page-button">Start Game</Button> */}
     </>
   );
 }
