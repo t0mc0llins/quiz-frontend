@@ -1,7 +1,7 @@
 import { fetched_four_movies } from "./types";
 
 const initialState = {
-  movies: [],
+  fourMovies: [],
 };
 
 export default function questionSliceReducer(state = initialState, action) {
@@ -9,7 +9,7 @@ export default function questionSliceReducer(state = initialState, action) {
     case fetched_four_movies: {
       return {
         ...state,
-        movies: [...action.payload],
+        fourMovies: [...action.payload],
       };
     }
     default: {
