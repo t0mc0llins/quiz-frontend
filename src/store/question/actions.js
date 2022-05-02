@@ -20,10 +20,14 @@ export async function fetchFourMovies(dispatch, getState) {
     const movies = response.data.results;
     let randomNumbers = [];
     while (randomNumbers.length < roundLength) {
-      let r = Math.floor(Math.random() * 20) + 1;
+      let r = Math.floor(Math.random() * 10) + 1;
       if (randomNumbers.indexOf(r) === -1) randomNumbers.push(r);
     }
-    dispatch(fetchedFourMovies(movies));
+    let randomMovies = [];
+    for (let i = 0; randomNumbers.length > i; i++) {
+      randomMovies.push(movies[randomNumbers[i] - 1]);
+    }
+    dispatch(fetchedFourMovies(randomMovies));
     // dispatch(appDoneLoading());
   } catch (error) {
     console.log(error.message);
