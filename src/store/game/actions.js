@@ -1,6 +1,6 @@
 import { increment_question_counter } from "./types";
 
-function incrementQuestionCounter() {
+export function incrementQuestionCounter() {
   return {
     type: increment_question_counter,
   };
