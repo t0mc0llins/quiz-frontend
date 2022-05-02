@@ -1,0 +1,6 @@
+.home-page-button {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  /* background-color: blueviolet; */
+}
