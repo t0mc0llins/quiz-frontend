@@ -8,11 +8,12 @@ export const fetchCategories = (categories) => ({
   payload: categories,
 });
 
-export const categoriesFetch = (id) => {
+export const categoriesFetch = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`${apiUrl}/quiz/category/${id}`);
+      const response = await axios.get(`${apiUrl}/quiz/category`);
       dispatch(fetchCategories(response.data));
+      console.log("res", response.data);
     } catch (err) {
       console.log(err.message);
     }

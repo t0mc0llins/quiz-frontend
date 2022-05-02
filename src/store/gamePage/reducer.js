@@ -1,7 +1,7 @@
 import { FETCH_CATEGORIES } from "./types";
 
 const initialState = {
-  categories: ["Swen", "Vasileios", "Thom"],
+  categories: [],
 };
 
 export default function gamePageReducer(state = initialState, action) {
