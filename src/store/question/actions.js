@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiKey } from "../../config/constants";
-import { fetched_four_movies } from "./types";
+import { fetched_four_movies, generate_year_questions } from "./types";
 
 function fetchedFourMovies(movies) {
   return {
@@ -34,4 +34,27 @@ export async function fetchFourMovies(dispatch, getState) {
     // dispatch(setMessage("danger", true, error.message));
   }
   // dispatch(appDoneLoading());
+}
+
+export function generateYearQuestions(movies) {
+  let rightAnswers = [];
+  let wrongAnswers = [[], [], [], []];
+
+  for (let i = 0; movies.length > i; i++) {
+    rightAnswers.push({
+      year: parseInt(movies[i].release_date.substring(0, 4)),
+      poster: movies[i].poster_path,
+      title: movies[i].title,
+    });
+    while (wrongAnswers[i].length < 3) {
+      let change = Math.floor(Math.random() * 30) + 1;
+      let answer = rightAnswers[i].year - 15 + change;
+      if (wrongAnswers[i].indexOf(answer) === -1) wrongAnswers[i].push(answer);
+    }
+  }
+  const answers = { rightAnswers, wrongAnswers };
+  return {
+    type: generate_year_questions,
+    payload: answers,
+  };
 }
