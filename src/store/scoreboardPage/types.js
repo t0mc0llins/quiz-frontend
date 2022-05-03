@@ -1,0 +1,1 @@
+export const FETCH_SCOREBOARD = "FETCH_SCOREBOARD";
