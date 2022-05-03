@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./styles.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectCategories } from "../../store/gamePage/selectors";
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 // import { categoriesFetch } from "../../store/gamePage/actions";
 
 const SpinningWheel = () => {
@@ -183,37 +184,69 @@ const SpinningWheel = () => {
   }, []);
 
   return (
-    <Container className="Wheel">
-      <span id="selector">&#9660;</span>
-      <canvas
-        id="wheel"
-        width="500"
-        height="500"
-        ref={canvasRef}
-        style={{
-          WebkitTransform: `rotate(${state.rotate}deg)`,
-          WebkitTransition: `-webkit-transform ${state.easeOut}s ease-out`,
-        }}
-      />
-
+    <Box className="Wheel">
+      <Box>
+        <span id="selector">&#9660;</span>
+        <canvas
+          id="wheel"
+          width="500"
+          height="500"
+          ref={canvasRef}
+          style={{
+            margin: 0,
+            letterSpacing: 2,
+            fontFamily: "Happy Monkey ",
+            fontSize: 7,
+            color: "white",
+            height: 750,
+            WebkitTransform: `rotate(${state.rotate}deg)`,
+            WebkitTransition: `-webkit-transform ${state.easeOut}s ease-out`,
+          }}
+        />
+        <Box className="display">
+          <Typography id="readout">
+            <span id="result">
+              {state.result !== null ? categories[state.result] : ""}
+            </span>
+          </Typography>
+        </Box>
+      </Box>
       {state.spinning ? (
-        <Button type="button" id="reset" onClick={() => reset()}>
+        <Button
+          color="secondary"
+          xs={6}
+          sx={{
+            p: 2,
+            width: "250px",
+            borderRadius: "15px",
+            textAlign: "center",
+            fontFamily: "Happy Monkey",
+            letterSpacing: 5,
+          }}
+          variant="contained"
+          onClick={() => reset()}
+        >
           reset
         </Button>
       ) : (
-        <Button type="button" id="spin" onClick={() => spin()}>
+        <Button
+          color="secondary"
+          xs={6}
+          sx={{
+            p: 2,
+            width: "250px",
+            borderRadius: "15px",
+            textAlign: "center",
+            fontFamily: "Happy Monkey",
+            letterSpacing: 5,
+          }}
+          variant="contained"
+          onClick={() => spin()}
+        >
           spin
         </Button>
       )}
-      <Container className="display">
-        <Typography id="readout">
-          YOU WON:{"  "}
-          <span id="result">
-            {state.result !== null ? categories[state.result] : ""}
-          </span>
-        </Typography>
-      </Container>
-    </Container>
+    </Box>
   );
 };
 export default SpinningWheel;
