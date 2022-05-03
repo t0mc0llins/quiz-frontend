@@ -1,15 +1,23 @@
 import axios from "axios";
 import { apiKey } from "../../config/constants";
-import { fetched_four_movies } from "./types";
+import { shuffleAnswers } from "../../config/functions";
+import { set_shuffled_questions, set_questions } from "./types";
 
-function fetchedFourMovies(movies) {
+function setQuestions(answers) {
   return {
-    type: fetched_four_movies,
-    payload: movies,
+    type: set_questions,
+    payload: answers,
   };
 }
 
-export async function fetchFourMovies(dispatch, getState) {
+function setShuffledQuestions(answers) {
+  return {
+    type: set_shuffled_questions,
+    payload: answers,
+  };
+}
+
+async function fetchFourMovies() {
   // dispatch(appLoading());
   try {
     const page = Math.floor(Math.random() * 10) + 1;
@@ -27,11 +35,82 @@ export async function fetchFourMovies(dispatch, getState) {
     for (let i = 0; randomNumbers.length > i; i++) {
       randomMovies.push(movies[randomNumbers[i] - 1]);
     }
-    dispatch(fetchedFourMovies(randomMovies));
+    return randomMovies;
     // dispatch(appDoneLoading());
   } catch (error) {
     console.log(error.message);
     // dispatch(setMessage("danger", true, error.message));
   }
   // dispatch(appDoneLoading());
+}
+
+export async function generateYearQuestions(dispatch, getState) {
+  // dispatch(appLoading());
+  try {
+    const randomMovies = await fetchFourMovies();
+    console.log("random", randomMovies);
+
+    let rightAnswers = [];
+    let wrongAnswers = [[], [], [], []];
+
+    for (let i = 0; randomMovies.length > i; i++) {
+      rightAnswers.push({
+        year: parseInt(randomMovies[i].release_date.substring(0, 4)),
+        poster: randomMovies[i].poster_path,
+        title: randomMovies[i].title,
+      });
+      while (wrongAnswers[i].length < 3) {
+        let change = Math.floor(Math.random() * 30) + 1;
+        let answer = rightAnswers[i].year - 15 + change;
+        if (answer <= 2022 && wrongAnswers[i].indexOf(answer) === -1)
+          wrongAnswers[i].push(answer);
+      }
+    }
+    const answers = { rightAnswers, wrongAnswers };
+    dispatch(setQuestions(answers));
+    const rightAnswerYears = rightAnswers.map((a) => {
+      return a.year;
+    });
+
+    const random = shuffleAnswers(wrongAnswers, rightAnswerYears);
+    dispatch(setShuffledQuestions(random));
+  } catch (error) {
+    console.log(error.message);
+    // dispatch(setMessage("danger", true, error.message));
+  }
+}
+
+export async function generateActorQuestions(dispatch, getState) {
+  // dispatch(appLoading());
+  try {
+    const randomMovies = await fetchFourMovies();
+
+    let rightAnswers = [];
+    let wrongAnswers = [[], [], [], []];
+
+    for (let i = 0; randomMovies.length > i; i++) {
+      rightAnswers.push({
+        year: parseInt(randomMovies[i].release_date.substring(0, 4)),
+        poster: randomMovies[i].poster_path,
+        title: randomMovies[i].title,
+      });
+      while (wrongAnswers[i].length < 3) {
+        let change = Math.floor(Math.random() * 30) + 1;
+        let answer = rightAnswers[i].year - 15 + change;
+        if (answer <= 2022 && wrongAnswers[i].indexOf(answer) === -1)
+          wrongAnswers[i].push(answer);
+      }
+    }
+    const answers = { rightAnswers, wrongAnswers };
+    dispatch(setQuestions(answers));
+    const rightAnswerYears = rightAnswers.map((a) => {
+      return a.year;
+    });
+
+    const random = shuffleAnswers(wrongAnswers, rightAnswerYears);
+    dispatch(setShuffledQuestions(random));
+  } catch (error) {
+    console.log(error.message);
+    // dispatch(setMessage("danger", true, error.message));
+  }
 }

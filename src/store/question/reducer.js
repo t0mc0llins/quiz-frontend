@@ -1,15 +1,24 @@
-import { fetched_four_movies } from "./types";
+import { set_shuffled_questions, set_questions } from "./types";
 
 const initialState = {
-  fourMovies: [],
+  rightAnswers: [],
+  wrongAnswers: [],
+  shuffledQuestions: [],
 };
 
 export default function questionSliceReducer(state = initialState, action) {
   switch (action.type) {
-    case fetched_four_movies: {
+    case set_questions: {
       return {
         ...state,
-        fourMovies: [...action.payload],
+        rightAnswers: action.payload.rightAnswers,
+        wrongAnswers: action.payload.wrongAnswers,
+      };
+    }
+    case set_shuffled_questions: {
+      return {
+        ...state,
+        shuffledQuestions: action.payload,
       };
     }
     default: {

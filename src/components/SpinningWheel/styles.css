@@ -1,4 +1,14 @@
-.Wheel {
+
+body {
+  background: linear-gradient(to left, rgb(212 142 142), rgb(187 187 255));
+  /* background: linear-gradient(to left, rgb(138, 52, 52), rgb(97, 97, 199)); */
+  /* background-image: url(
+      "https://img.freepik.com/free-vector/background-seamless-pattern-vector-with-cute-memphis_53876-105506.jpg?t=st=1651568714~exp=1651569314~hmac=48d3518156d3f1f235fe7e9a69ea5fd042d7846e2ff2a6e2cd3eb69d8289330f&w=1380"
+    ); */
+}
+
+.App {
+
   font-family: sans-serif;
   text-align: center;
 }

@@ -1,0 +1,69 @@
+.home-page-title {
+  z-index: 10;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  color: aliceblue;
+  font-family: "Libre Bodoni", serif !important;
+  text-shadow: 3px 3px 2px rgb(240, 189, 189), -2px -2px 0 rgb(50, 43, 75);
+}
+@media screen and (max-width: 667px) {
+  .home-page-title {
+    font-size: 1.5em !important;
+  }
+}
+@media screen and (min-width: 668px) {
+  .home-page-title {
+    font-size: 2.5em !important;
+  }
+}
+.overlay {
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.image-list-container {
+  margin: 0;
+  height: 100%;
+}
+
+.home-page-button {
+  z-index: 10;
+  position: absolute !important;
+  border-style: double;
+  padding: 1%;
+  border-radius: 10px;
+}
+@media screen and (max-width: 667px) {
+  .home-page-button {
+    padding: 2%;
+    font-size: 120%;
+    top: 50%;
+  }
+}
+@media screen and (min-width: 668px) {
+  .home-page-button {
+    font-size: 200%;
+    top: 53%;
+  }
+}
+Link:hover {
+  box-shadow: rgba(236, 231, 231, 0.35) 0px 5px 15px;
+}
+.home-page-button:hover {
+  box-shadow: rgba(236, 231, 231, 0.35) 0px 5px 15px;
+}
+
+.title-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}

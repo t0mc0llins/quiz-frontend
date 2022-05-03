@@ -3,16 +3,15 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 
-export default function RowAndColumnSpacing(props) {
+export default function QuestionButtons() {
   return (
-    <Box sx={{ mt: 4, mb: 2 }}>
+    <Box sx={{ mt: 5 }}>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -20,16 +19,15 @@ export default function RowAndColumnSpacing(props) {
               sx={{ fontFamily: `'Happy Monkey', cursive` }}
               variant="h5"
             >
-              {props.ans1}
+              Gaffer
             </Typography>
           </Button>
         </Grid>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -37,16 +35,15 @@ export default function RowAndColumnSpacing(props) {
               sx={{ fontFamily: `'Happy Monkey', cursive` }}
               variant="h5"
             >
-              {props.ans2}
+              Splicer
             </Typography>
           </Button>
         </Grid>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -54,16 +51,15 @@ export default function RowAndColumnSpacing(props) {
               sx={{ fontFamily: `'Happy Monkey', cursive` }}
               variant="h5"
             >
-              {props.ans3}
+              Best boy
             </Typography>
           </Button>
         </Grid>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ p: 6, width: 1 }}
             variant="contained"
             size="large"
           >
@@ -71,7 +67,7 @@ export default function RowAndColumnSpacing(props) {
               sx={{ fontFamily: `'Happy Monkey', cursive` }}
               variant="h5"
             >
-              {props.ans4}
+              Key Grip
             </Typography>
           </Button>
         </Grid>
