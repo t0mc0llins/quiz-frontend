@@ -1,0 +1,11 @@
+
+
+@media only screen and (max-width: 800px) {
+  .main-button {
+    flex-direction: column;
+  }
+  .icons {
+    height: 65px;
+    width: 60px;
+  }
+}
