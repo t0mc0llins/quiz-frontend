@@ -8,20 +8,28 @@
   font-family: "Libre Bodoni", serif !important;
   text-shadow: 3px 3px 2px rgb(240, 189, 189), -2px -2px 0 rgb(50, 43, 75);
 }
-@media screen and (max-width: 667px) {
-  .home-page-title {
-    font-size: 1.5em !important;
-  }
-}
+
 @media screen and (min-width: 668px) {
   .home-page-title {
-    top: 5%;
-    font-size: 2.9em !important;
+    top: 15%;
+    font-size: 5.9em !important;
+  }
+}
+@media screen and (max-width: 667px) {
+  .home-page-title {
+    font-size: 4.5em !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .home-page-title {
+    top: 15%;
+    font-size: 3.2em !important;
   }
 }
 @media screen and (min-width: 908px) {
   .home-page-title {
-    top: 15%;
+    top: 18%;
+    font-size: 7.9em !important;
   }
 }
 .overlay {
@@ -65,6 +73,12 @@
   .home-page-button {
     font-size: 250%;
     top: 53%;
+  }
+}
+@media screen and (min-width: 900px) {
+  .home-page-button {
+    font-size: 250%;
+    top: 60%;
   }
 }
 
