@@ -5,7 +5,7 @@ import { FETCH_CATEGORIES } from "./types";
 
 export const fetchCategories = (categories) => ({
   type: FETCH_CATEGORIES,
-  payload: categories,
+  payload: { categories },
 });
 
 export const categoriesFetch = () => {
