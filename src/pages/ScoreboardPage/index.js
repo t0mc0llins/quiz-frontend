@@ -12,6 +12,7 @@ import TableRow from "@mui/material/TableRow";
 import Container from "@mui/material/Container";
 
 import "./style.css";
+import { Link } from "@mui/material";
 
 export default function ScoreboardPage() {
   const dispatch = useDispatch();
@@ -38,6 +39,10 @@ export default function ScoreboardPage() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <Link className="play-again-button" href="/game">
+        Play again{" "}
+      </Link>
     </Container>
   );
 }
