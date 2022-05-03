@@ -1,0 +1,14 @@
+.table-container {
+  padding-top: 5%;
+  font-family: "Libre Bodoni", serif;
+}
+
+.table-head {
+  font-size: 6em;
+  color: aliceblue;
+  text-shadow: 3px 3px 2px rgb(240, 189, 189), -2px -2px 0 rgb(50, 43, 75);
+}
+
+.table-cell {
+  font-size: 2em !important;
+}
