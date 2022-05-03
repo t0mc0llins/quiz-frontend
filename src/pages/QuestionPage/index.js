@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import { Box, Typography, Container, Button, Grid } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { selectQuestions } from "../../store/gamePage/selectors";
-
+import React from "react";
+import { Box, Typography, Container } from "@mui/material";
+import { useSelector } from "react-redux";
 import AnswerButton from "../../components/AnswerButton";
+import { selectQuestionCounter, selectScore } from "../../store/game/selectors";
+import { selectRightAnswers } from "../../store/question/selector";
 
-export default function QuestionPage() {
-  const questions = useSelector(selectQuestions);
-  const dispatch = useDispatch();
-  console.log(questions?.question);
+export default function QuestionPage(props) {
+  const score = useSelector(selectScore);
+  const questionNumber = useSelector(selectQuestionCounter);
+  const rightAnswers = useSelector(selectRightAnswers);
 
-  useEffect(() => {}, [questions, dispatch]);
   return (
     <div>
       <Box sx={{ mt: 3, display: "flex", justifyContent: "space-around" }}>
@@ -26,7 +25,7 @@ export default function QuestionPage() {
           gutterBottom
           component="div"
         >
-          Your Score : 4
+          Your Score : {score}
         </Typography>
         <Typography
           sx={{
@@ -40,7 +39,7 @@ export default function QuestionPage() {
           gutterBottom
           component="div"
         >
-          Question 3 of 10
+          Question {questionNumber} of 12
         </Typography>
       </Box>
       <Container
@@ -67,8 +66,7 @@ export default function QuestionPage() {
             gutterBottom
             component="div"
           >
-            {questions?.question}
-            {/* What was the first movie in the Marvel Cinematic Universe? */}
+            {props.title}
           </Typography>
         </Box>
 
@@ -79,15 +77,17 @@ export default function QuestionPage() {
             height: 350,
             borderRadius: "10px",
           }}
-          alt="The house from the offer."
-          src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/x5o8cLZfEXMoZczTYWLrUo1P7UJ.jpg"
+          alt="Movie"
+          src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${
+            rightAnswers[questionNumber - 1].poster
+          }`}
         />
 
         <AnswerButton
-          ans1="ANSWER1"
-          ans2="ANSWER1"
-          ans3="ANSWER1"
-          ans4="ANSWER1"
+          handleAnswer1={props.handleAnswer1}
+          handleAnswer2={props.handleAnswer2}
+          handleAnswer3={props.handleAnswer3}
+          handleAnswer4={props.handleAnswer4}
         />
       </Container>
     </div>

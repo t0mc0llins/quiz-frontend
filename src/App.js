@@ -5,6 +5,7 @@ import GamePage from "./pages/GamePage";
 import HomePage from "./pages/HomePage";
 import QuestionPage from "./pages/QuestionPage";
 import ScoreboardPage from "./pages/ScoreboardPage";
+import YearQuizPage from "./pages/YearQuizPage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <Route path="/year" element={<YearQuiz />} />
         <Route path="/scoreboard" element={<ScoreboardPage />} />
         <Route path="/actor" element={<ActorQuiz />} />
-
+        <Route path="/quiz" element={<YearQuizPage />} />
       </Routes>
     </div>
   );
