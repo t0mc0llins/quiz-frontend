@@ -2,7 +2,9 @@ import { FETCH_QUESTION, FETCH_USER_ANSWER } from "./actions";
 import { FETCH_CATEGORIES } from "./types";
 
 const initialState = {
-  categories: ["Swen", "Vasileios", "Thom"],
+
+  categories: ["Comedy", "Drama", "Horror", "Action", "Western"],
+
   questions: {
     id: 2,
     question:
@@ -57,11 +59,13 @@ export default function gamePageReducer(state = initialState, action) {
         ...state,
         categories: action.payload,
       };
+      
     case FETCH_QUESTION:
       return { ...state.questions, questions: action.payload };
 
     case FETCH_USER_ANSWER:
       return { ...state, ...state.userAnswer, userAnswer: action.payload };
+
     default:
       return state;
   }

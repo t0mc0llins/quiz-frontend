@@ -8,7 +8,7 @@ export const FETCH_USER_ANSWER = "FETCH_USER_ANSWER";
 
 export const fetchCategories = (categories) => ({
   type: FETCH_CATEGORIES,
-  payload: categories,
+  payload: { categories },
 });
 
 export const getQuestions = (id) => ({

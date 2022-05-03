@@ -1,3 +1,4 @@
+
 body {
   background: linear-gradient(to left, rgb(212 142 142), rgb(187 187 255));
   /* background: linear-gradient(to left, rgb(138, 52, 52), rgb(97, 97, 199)); */
@@ -7,16 +8,17 @@ body {
 }
 
 .App {
+
   font-family: sans-serif;
   text-align: center;
 }
 
-button {
+/* button {
   background: none;
   border: 1px solid black;
   font-size: 20px;
   border-radius: 5px;
-}
+} */
 
 #spin,
 #reset {
@@ -54,7 +56,7 @@ button {
 
 #selector {
   position: absolute;
-  top: 21vh;
+  top: 9vh;
   right: 47.5vw;
   font-size: 40px;
   z-index: 3;

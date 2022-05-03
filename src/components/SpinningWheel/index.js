@@ -3,12 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../store/gamePage/selectors";
-import { categoriesFetch } from "../../store/gamePage/actions";
+import { Button, Container, Typography } from "@mui/material";
+// import { categoriesFetch } from "../../store/gamePage/actions";
 
 const SpinningWheel = () => {
   const canvasRef = useRef();
   const categories = useSelector(selectCategories);
-  const dispatch = useDispatch();
+  // console.log("cat", categories);
+  // const dispatch = useDispatch();
   const [state, setState] = useState({
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
@@ -21,9 +23,9 @@ const SpinningWheel = () => {
     spinning: false,
   });
 
-  useEffect(() => {
-    dispatch(categoriesFetch());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(categoriesFetch());
+  // }, [dispatch]);
 
   const renderWheel = () => {
     // determine number/size of sectors that need to created
@@ -181,7 +183,7 @@ const SpinningWheel = () => {
   }, []);
 
   return (
-    <div className="Wheel">
+    <Container className="Wheel">
       <span id="selector">&#9660;</span>
       <canvas
         id="wheel"
@@ -195,23 +197,23 @@ const SpinningWheel = () => {
       />
 
       {state.spinning ? (
-        <button type="button" id="reset" onClick={() => reset()}>
+        <Button type="button" id="reset" onClick={() => reset()}>
           reset
-        </button>
+        </Button>
       ) : (
-        <button type="button" id="spin" onClick={() => spin()}>
+        <Button type="button" id="spin" onClick={() => spin()}>
           spin
-        </button>
+        </Button>
       )}
-      <div className="display">
-        <span id="readout">
+      <Container className="display">
+        <Typography id="readout">
           YOU WON:{"  "}
           <span id="result">
             {state.result !== null ? categories[state.result] : ""}
           </span>
-        </span>
-      </div>
-    </div>
+        </Typography>
+      </Container>
+    </Container>
   );
 };
 export default SpinningWheel;
