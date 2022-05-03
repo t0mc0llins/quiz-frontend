@@ -1,7 +1,7 @@
 export const selectFourMovies = (reduxState) => reduxState.question.fourMovies;
-export const selectYearRightAnswers = (reduxState) =>
-  reduxState.question.yearRightAnswers;
-export const selectYearWrongAnswers = (reduxState) =>
-  reduxState.question.yearWrongAnswers;
+export const selectRightAnswers = (reduxState) =>
+  reduxState.question.rightAnswers;
+export const selectWrongAnswers = (reduxState) =>
+  reduxState.question.wrongAnswers;
 export const selectShuffledQuestions = (reduxState) =>
   reduxState.question.shuffledQuestions;
