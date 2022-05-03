@@ -11,7 +11,7 @@ export default function YearQuiz() {
   const dispatch = useDispatch();
   const questionNumber = useSelector(selectQuestionCounter);
   const rightAnswers = useSelector(selectYearRightAnswers);
-  const wrongAnswers = fd;
+  // const wrongAnswers = fd;
 
   useEffect(() => {
     dispatch(generateYearQuestions);
