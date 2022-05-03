@@ -11,10 +11,10 @@ export const fetchScoreboard = (scoreboard) => ({
 export const fetchAllScores = () => {
   return async (dispatch, getState) => {
     try {
-      const response = await axios.get(`${apiUrl}/scoreboard`);
+      const response = await axios.get(`${apiUrl}/quiz/scoreboard`);
       console.log("response= ", response);
 
-      dispatch(fetchScoreboard(response.data.results));
+      dispatch(fetchScoreboard(response.data));
     } catch (e) {
       console.log(e.message);
     }
