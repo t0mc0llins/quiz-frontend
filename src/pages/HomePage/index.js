@@ -8,6 +8,7 @@ import {
   Container,
   Link,
   Typography,
+  Box,
 } from "@mui/material";
 import { apiUrlPoster } from "../../config/constants";
 import "./style.css";
@@ -26,9 +27,14 @@ export default function HomePage() {
     <>
       {/* <h1>Welcome to Movie Quiz</h1> */}
       <Container className="overlay"></Container>
-      <Typography className="home-page-title">
-        <h1>Welcome to Movie Quiz</h1>
-      </Typography>
+      <Box className="title-box">
+        <Typography className="home-page-title">
+          <h1>Welcome to Movie Quiz</h1>
+        </Typography>
+        <Link href="/game" className="home-page-button">
+          Start Game
+        </Link>
+      </Box>
       <ImageList
         className="image-list-container"
         variant="quilted"
@@ -45,9 +51,6 @@ export default function HomePage() {
           </ImageListItem>
         ))}
       </ImageList>
-      <Link href="/game" className="home-page-button">
-        Start Game
-      </Link>
       {/* <Button className="home-page-button">Start Game</Button> */}
     </>
   );
