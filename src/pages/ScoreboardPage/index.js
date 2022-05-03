@@ -9,6 +9,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Container from "@mui/material/Container";
+
 import "./style.css";
 
 export default function ScoreboardPage() {
@@ -22,18 +24,20 @@ export default function ScoreboardPage() {
   }, [dispatch]);
 
   return (
-    <TableContainer>
-      <Table>
-        <TableHead>HIGH SCORES</TableHead>
-        <TableBody>
-          {scoreboard.map((item) => (
-            <TableRow>
-              <TableCell>{item.username}</TableCell>
-              <TableCell>{item.score}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Container className="table-container">
+      <TableContainer>
+        <Table size="small">
+          <TableHead className="table-head">HIGH SCORES</TableHead>
+          <TableBody>
+            {scoreboard.map((item) => (
+              <TableRow key={item.id}>
+                <TableCell className="table-cell">{item.username}</TableCell>
+                <TableCell className="table-cell">{item.score}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 }
