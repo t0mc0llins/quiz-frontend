@@ -1,11 +1,21 @@
 .home-page-title {
   z-index: 10;
   position: absolute;
+  text-align: center;
   top: 20%;
-  left: 22%;
   color: aliceblue;
   font-family: "Libre Bodoni", serif !important;
-  font-size: 300% !important;
+  text-shadow: 3px 3px 2px rgb(240, 189, 189), -2px -2px 0 rgb(50, 43, 75);
+}
+@media screen and (max-width: 667px) {
+  .home-page-title {
+    font-size: 1.5em !important;
+  }
+}
+@media screen and (min-width: 668px) {
+  .home-page-title {
+    font-size: 2.5em !important;
+  }
 }
 .overlay {
   z-index: 9;
@@ -24,10 +34,36 @@
 .home-page-button {
   z-index: 10;
   position: absolute !important;
-  top: 50%;
-  left: 47%;
-  /* height: 100px; */
-  font-size: 200%;
-  /* background-color: black !important; */
-  /* background-color: blueviolet; */
+  border-style: double;
+  padding: 1%;
+  border-radius: 10px;
+}
+@media screen and (max-width: 667px) {
+  .home-page-button {
+    padding: 2%;
+    font-size: 120%;
+    top: 50%;
+  }
+}
+@media screen and (min-width: 668px) {
+  .home-page-button {
+    font-size: 200%;
+    top: 53%;
+  }
+}
+Link:hover {
+  box-shadow: rgba(236, 231, 231, 0.35) 0px 5px 15px;
+}
+.home-page-button:hover {
+  box-shadow: rgba(236, 231, 231, 0.35) 0px 5px 15px;
+}
+
+.title-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  min-width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
