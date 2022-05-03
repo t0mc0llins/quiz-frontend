@@ -23,6 +23,7 @@ export default function YearQuiz() {
   const wrongAnswers = useSelector(selectWrongAnswers);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
 
+
   useEffect(() => {
     dispatch(generateYearQuestions);
   }, []);
