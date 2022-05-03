@@ -3,6 +3,7 @@
   position: absolute;
   text-align: center;
   top: 20%;
+
   color: aliceblue;
   font-family: "Libre Bodoni", serif !important;
   text-shadow: 3px 3px 2px rgb(240, 189, 189), -2px -2px 0 rgb(50, 43, 75);
@@ -35,27 +36,42 @@
   z-index: 10;
   position: absolute !important;
   border-style: double;
-  padding: 1%;
+  padding: 2%;
   border-radius: 10px;
+  color: #eadedb !important;
+  text-decoration: none !important;
+  text-shadow: 3px 3px 2px rgb(206, 187, 187), -2px -2px 0 rgb(29, 23, 50);
+  background-image: linear-gradient(
+    140deg,
+    #eadedb 0%,
+    #2b0a20 50%,
+    #311968 75%
+  );
 }
 @media screen and (max-width: 667px) {
   .home-page-button {
     padding: 2%;
-    font-size: 120%;
+    font-size: 130%;
     top: 50%;
   }
 }
 @media screen and (min-width: 668px) {
   .home-page-button {
-    font-size: 200%;
+    font-size: 250%;
     top: 53%;
   }
 }
-Link:hover {
-  box-shadow: rgba(236, 231, 231, 0.35) 0px 5px 15px;
-}
+
 .home-page-button:hover {
+  color: #2b0a20 !important;
+  text-shadow: 3px 3px 2px rgb(240, 189, 189), -2px -2px 0 rgb(50, 43, 75);
   box-shadow: rgba(236, 231, 231, 0.35) 0px 5px 15px;
+  background-image: linear-gradient(
+    140deg,
+    #bfd641 0%,
+    #bc70a4 50%,
+    #eadedb 75%
+  );
 }
 
 .title-box {
