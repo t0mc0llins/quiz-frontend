@@ -72,7 +72,7 @@ export async function generateYearQuestions(dispatch, getState) {
       while (wrongAnswers[i].length < 3) {
         let change = Math.floor(Math.random() * 30) + 1;
         let answer = rightAnswers[i].year - 15 + change;
-        if (wrongAnswers[i].indexOf(answer) === -1)
+        if (answer <= 2022 && wrongAnswers[i].indexOf(answer) === -1)
           wrongAnswers[i].push(answer);
       }
     }
