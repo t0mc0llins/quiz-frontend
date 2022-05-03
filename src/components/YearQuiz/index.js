@@ -7,8 +7,8 @@ import { Button, Typography } from "@mui/material";
 import { selectQuestionCounter, selectScore } from "../../store/game/selectors";
 import {
   selectShuffledQuestions,
-  selectYearRightAnswers,
-  selectYearWrongAnswers,
+  selectRightAnswers,
+  selectWrongAnswers,
 } from "../../store/question/selector";
 import {
   incrementQuestionCounter,
@@ -19,8 +19,8 @@ export default function YearQuiz() {
   const dispatch = useDispatch();
   const score = useSelector(selectScore);
   const questionNumber = useSelector(selectQuestionCounter);
-  const rightAnswers = useSelector(selectYearRightAnswers);
-  const wrongAnswerYears = useSelector(selectYearWrongAnswers);
+  const rightAnswers = useSelector(selectRightAnswers);
+  const wrongAnswers = useSelector(selectWrongAnswers);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function YearQuiz() {
     dispatch(incrementQuestionCounter());
   };
 
-  return wrongAnswerYears.length === 0 || shuffledQuestions.length === 0 ? (
+  return wrongAnswers.length === 0 || shuffledQuestions.length === 0 ? (
     "loading"
   ) : (
     <Box sx={{ mt: 5 }}>

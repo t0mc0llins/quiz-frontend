@@ -1,22 +1,11 @@
 import axios from "axios";
 import { apiKey } from "../../config/constants";
 import { shuffleAnswers } from "../../config/functions";
-import {
-  fetched_four_movies,
-  set_shuffled_questions,
-  set_year_questions,
-} from "./types";
+import { set_shuffled_questions, set_questions } from "./types";
 
-function fetchedFourMovies(movies) {
+function setQuestions(answers) {
   return {
-    type: fetched_four_movies,
-    payload: movies,
-  };
-}
-
-function setYearQuestions(answers) {
-  return {
-    type: set_year_questions,
+    type: set_questions,
     payload: answers,
   };
 }
@@ -59,6 +48,7 @@ export async function generateYearQuestions(dispatch, getState) {
   // dispatch(appLoading());
   try {
     const randomMovies = await fetchFourMovies();
+    console.log("random", randomMovies);
 
     let rightAnswers = [];
     let wrongAnswers = [[], [], [], []];
@@ -77,13 +67,47 @@ export async function generateYearQuestions(dispatch, getState) {
       }
     }
     const answers = { rightAnswers, wrongAnswers };
-    dispatch(setYearQuestions(answers));
+    dispatch(setQuestions(answers));
     const rightAnswerYears = rightAnswers.map((a) => {
       return a.year;
     });
 
     const random = shuffleAnswers(wrongAnswers, rightAnswerYears);
-    console.log(random);
+    dispatch(setShuffledQuestions(random));
+  } catch (error) {
+    console.log(error.message);
+    // dispatch(setMessage("danger", true, error.message));
+  }
+}
+
+export async function generateActorQuestions(dispatch, getState) {
+  // dispatch(appLoading());
+  try {
+    const randomMovies = await fetchFourMovies();
+
+    let rightAnswers = [];
+    let wrongAnswers = [[], [], [], []];
+
+    for (let i = 0; randomMovies.length > i; i++) {
+      rightAnswers.push({
+        year: parseInt(randomMovies[i].release_date.substring(0, 4)),
+        poster: randomMovies[i].poster_path,
+        title: randomMovies[i].title,
+      });
+      while (wrongAnswers[i].length < 3) {
+        let change = Math.floor(Math.random() * 30) + 1;
+        let answer = rightAnswers[i].year - 15 + change;
+        if (answer <= 2022 && wrongAnswers[i].indexOf(answer) === -1)
+          wrongAnswers[i].push(answer);
+      }
+    }
+    const answers = { rightAnswers, wrongAnswers };
+    dispatch(setQuestions(answers));
+    const rightAnswerYears = rightAnswers.map((a) => {
+      return a.year;
+    });
+
+    const random = shuffleAnswers(wrongAnswers, rightAnswerYears);
     dispatch(setShuffledQuestions(random));
   } catch (error) {
     console.log(error.message);
