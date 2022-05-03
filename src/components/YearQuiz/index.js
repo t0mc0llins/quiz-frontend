@@ -1,25 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { generateYearQuestions } from "../../store/question/actions";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
-import { selectQuestionCounter } from "../../store/game/selectors";
+import { selectQuestionCounter, selectScore } from "../../store/game/selectors";
 import {
-  selectOnlyYearRightAnswers,
   selectShuffledQuestions,
   selectYearRightAnswers,
   selectYearWrongAnswers,
 } from "../../store/question/selector";
-import { incrementQuestionCounter } from "../../store/game/actions";
+import {
+  incrementQuestionCounter,
+  incrementScore,
+} from "../../store/game/actions";
 
 export default function YearQuiz() {
   const dispatch = useDispatch();
-  const [score, setScore] = useState(0);
+  const score = useSelector(selectScore);
   const questionNumber = useSelector(selectQuestionCounter);
   const rightAnswers = useSelector(selectYearRightAnswers);
   const wrongAnswerYears = useSelector(selectYearWrongAnswers);
-  const rightAnswerYears = useSelector(selectOnlyYearRightAnswers);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
 
   useEffect(() => {
@@ -29,9 +30,9 @@ export default function YearQuiz() {
   const handleAnswer1 = () => {
     if (
       shuffledQuestions[questionNumber - 1][0] ===
-      rightAnswerYears[questionNumber - 1]
+      rightAnswers[questionNumber - 1].year
     ) {
-      setScore(score + 1);
+      dispatch(incrementScore());
     }
     dispatch(incrementQuestionCounter());
   };
@@ -39,9 +40,9 @@ export default function YearQuiz() {
   const handleAnswer2 = () => {
     if (
       shuffledQuestions[questionNumber - 1][1] ===
-      rightAnswerYears[questionNumber - 1]
+      rightAnswers[questionNumber - 1].year
     ) {
-      setScore(score + 1);
+      dispatch(incrementScore());
     }
     dispatch(incrementQuestionCounter());
   };
@@ -49,9 +50,9 @@ export default function YearQuiz() {
   const handleAnswer3 = () => {
     if (
       shuffledQuestions[questionNumber - 1][2] ===
-      rightAnswerYears[questionNumber - 1]
+      rightAnswers[questionNumber - 1].year
     ) {
-      setScore(score + 1);
+      dispatch(incrementScore());
     }
     dispatch(incrementQuestionCounter());
   };
@@ -59,9 +60,9 @@ export default function YearQuiz() {
   const handleAnswer4 = () => {
     if (
       shuffledQuestions[questionNumber - 1][3] ===
-      rightAnswerYears[questionNumber - 1]
+      rightAnswers[questionNumber - 1].year
     ) {
-      setScore(score + 1);
+      dispatch(incrementScore());
     }
     dispatch(incrementQuestionCounter());
   };
@@ -71,18 +72,26 @@ export default function YearQuiz() {
   ) : (
     <Box sx={{ mt: 5 }}>
       <Box>
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h3" pb={10}>
           In what year did {rightAnswers[questionNumber - 1].title} get
           released?
         </Typography>
-        <img
-          style={{ height: 500 }}
-          src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${
-            rightAnswers[questionNumber - 1].poster
-          }`}
-        />
+        <Box>
+          <img
+            style={{ height: 500 }}
+            alt="movie"
+            src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${
+              rightAnswers[questionNumber - 1].poster
+            }`}
+          />
+        </Box>
       </Box>
-      <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid
+        p={5}
+        container
+        rowSpacing={3}
+        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+      >
         <Grid item xs={6}>
           <Button
             color="secondary"
@@ -152,8 +161,10 @@ export default function YearQuiz() {
           </Button>
         </Grid>
       </Grid>
-      <Typography>Question number: {questionNumber}</Typography>
-      <Typography>Score: {score}</Typography>
+      <Typography gutterBottom variant="h4">
+        Question number: {questionNumber}
+      </Typography>
+      <Typography variant="h4">Score: {score}</Typography>
     </Box>
   );
 }
