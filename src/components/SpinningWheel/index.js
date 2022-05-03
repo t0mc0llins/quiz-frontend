@@ -1,12 +1,14 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./styles.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../store/gamePage/selectors";
+import { categoriesFetch } from "../../store/gamePage/actions";
+
 const SpinningWheel = () => {
   const canvasRef = useRef();
   const categories = useSelector(selectCategories);
-
+  const dispatch = useDispatch();
   const [state, setState] = useState({
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
@@ -18,6 +20,10 @@ const SpinningWheel = () => {
     result: null, // INDEX
     spinning: false,
   });
+
+  useEffect(() => {
+    dispatch(categoriesFetch());
+  }, [dispatch]);
 
   const renderWheel = () => {
     // determine number/size of sectors that need to created
@@ -208,5 +214,4 @@ const SpinningWheel = () => {
     </div>
   );
 };
-
 export default SpinningWheel;

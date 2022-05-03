@@ -47,6 +47,7 @@ const initialState = {
     ],
   },
   userAnswer: [],
+  categories: [],
 };
 
 export default function gamePageReducer(state = initialState, action) {
