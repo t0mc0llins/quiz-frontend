@@ -67,8 +67,8 @@ export default function QuestionPage() {
             gutterBottom
             component="div"
           >
-            {questions?.question}
-            {/* What was the first movie in the Marvel Cinematic Universe? */}
+            {/* {questions?.question} */}
+            What was the first movie in the Marvel Cinematic Universe?
           </Typography>
         </Box>
 

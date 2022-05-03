@@ -2,7 +2,9 @@ import * as React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
-import logo from "../../assests/logo.gif";
+import rightIcon from "../../assests/right.gif";
+import wrongIcon from "../../assests/wrong2.gif";
+import "./styles.css";
 
 export default function RowAndColumnSpacing(props) {
   const [button, setButton] = React.useState(false);
@@ -16,11 +18,12 @@ export default function RowAndColumnSpacing(props) {
             }}
             color="secondary"
             xs={6}
-            sx={{ width: 1, borderRadius: "15px" }}
+            sx={{ width: 1, height: "130px", borderRadius: "15px" }}
             variant="contained"
             size="large"
           >
             <Typography
+              className="main-button"
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -34,8 +37,9 @@ export default function RowAndColumnSpacing(props) {
               <div>
                 {button ? (
                   <img
+                    className="icons"
                     sx={{ height: "100px!important" }}
-                    src={logo}
+                    src={rightIcon}
                     alt="loading..."
                   />
                 ) : (
@@ -47,52 +51,105 @@ export default function RowAndColumnSpacing(props) {
         </Grid>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
+            onClick={() => {
+              setButton(true);
+            }}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ width: 1, height: "130px", borderRadius: "15px" }}
             variant="contained"
             size="large"
           >
             <Typography
-              sx={{ fontFamily: `'Happy Monkey', cursive` }}
+              className="main-button"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                fontFamily: `'Happy Monkey', cursive`,
+              }}
               variant="h5"
             >
-              {props.ans2}
+              <div sx={{ alignItems: "center", display: "flex" }}>
+                {props.ans1}
+              </div>
+              <div>
+                {button ? (
+                  <img className="icons" src={wrongIcon} alt="loading..." />
+                ) : (
+                  ""
+                )}
+              </div>
             </Typography>
           </Button>
         </Grid>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
+            onClick={() => {
+              setButton(true);
+            }}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ width: 1, height: "130px", borderRadius: "15px" }}
             variant="contained"
             size="large"
           >
             <Typography
-              sx={{ fontFamily: `'Happy Monkey', cursive` }}
+              className="main-button"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                fontFamily: `'Happy Monkey', cursive`,
+              }}
               variant="h5"
             >
-              {props.ans3}
+              <div sx={{ alignItems: "center", display: "flex" }}>
+                {props.ans1}
+              </div>
+              <div>
+                {button ? (
+                  <img
+                    className="icons"
+                    sx={{ height: "100px!important" }}
+                    src={wrongIcon}
+                    alt="loading..."
+                  />
+                ) : (
+                  ""
+                )}
+              </div>
             </Typography>
           </Button>
         </Grid>
         <Grid item xs={6}>
           <Button
-            // onClick={props.click}
+            onClick={() => {
+              setButton(true);
+            }}
             color="secondary"
             xs={6}
-            sx={{ p: 6, width: 1, borderRadius: "15px" }}
+            sx={{ width: 1, height: "130px", borderRadius: "15px" }}
             variant="contained"
             size="large"
           >
             <Typography
-              sx={{ fontFamily: `'Happy Monkey', cursive` }}
+              className="main-button"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                fontFamily: `'Happy Monkey', cursive`,
+              }}
               variant="h5"
             >
-              {props.ans4}
+              <div sx={{ alignItems: "center", display: "flex" }}>
+                {props.ans1}
+              </div>
+              <div>
+                {button ? (
+                  <img className="icons" src={wrongIcon} alt="loading..." />
+                ) : (
+                  ""
+                )}
+              </div>
             </Typography>
           </Button>
         </Grid>
