@@ -29,7 +29,7 @@ export default function HomePage() {
       <Container className="overlay"></Container>
       <Box className="title-box">
         <Typography className="home-page-title">
-          <h1>Welcome to Movie Quiz</h1>
+          <h1>Welcome to the Movie Quiz</h1>
         </Typography>
         <Link href="/game" className="home-page-button">
           Start Game
