@@ -129,7 +129,7 @@ export async function generateActorQuestions(dispatch, getState) {
 
     for (let i = 0; casts.length > i; i++) {
       rightAnswers.push({
-        name: casts[i][Math.floor(Math.random() * 5)].name,
+        name: casts[i][Math.floor(Math.random() * 5)].name.toLowerCase(),
         poster: details[i].poster_path,
         title: details[i].title,
       });
