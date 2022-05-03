@@ -30,8 +30,10 @@ export default function YearQuizPage() {
       rightAnswers[questionNumber - 1].year
     ) {
       dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
     }
-    dispatch(incrementQuestionCounter());
   };
 
   const handleAnswer2 = () => {
@@ -40,8 +42,10 @@ export default function YearQuizPage() {
       rightAnswers[questionNumber - 1].year
     ) {
       dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
     }
-    dispatch(incrementQuestionCounter());
   };
 
   const handleAnswer3 = () => {
@@ -50,8 +54,10 @@ export default function YearQuizPage() {
       rightAnswers[questionNumber - 1].year
     ) {
       dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
     }
-    dispatch(incrementQuestionCounter());
   };
 
   const handleAnswer4 = () => {
@@ -60,8 +66,10 @@ export default function YearQuizPage() {
       rightAnswers[questionNumber - 1].year
     ) {
       dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
     }
-    dispatch(incrementQuestionCounter());
   };
 
   return wrongAnswers.length === 0 ||

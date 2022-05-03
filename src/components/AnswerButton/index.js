@@ -5,7 +5,6 @@ import { Button, Typography } from "@mui/material";
 import rightIcon from "../../assests/right.gif";
 import wrongIcon from "../../assests/wrong2.gif";
 import "./styles.css";
-import logo from "../../assests/logo.gif";
 import { useSelector } from "react-redux";
 import { selectQuestionCounter } from "../../store/game/selectors";
 import { selectShuffledQuestions } from "../../store/question/selector";
@@ -21,6 +20,7 @@ export default function RowAndColumnSpacing(props) {
         <Grid item xs={6}>
           <Button
             onClick={() => {
+              setButton(true);
               props.handleAnswer1();
             }}
             color="secondary"
@@ -77,7 +77,6 @@ export default function RowAndColumnSpacing(props) {
               }}
               variant="h5"
             >
-
               <div sx={{ alignItems: "center", display: "flex" }}>
                 {shuffledQuestions[questionNumber - 1][1]}
               </div>
@@ -88,9 +87,6 @@ export default function RowAndColumnSpacing(props) {
                   ""
                 )}
               </div>
-
-              
-
             </Typography>
           </Button>
         </Grid>
@@ -115,9 +111,8 @@ export default function RowAndColumnSpacing(props) {
               }}
               variant="h5"
             >
-
               <div sx={{ alignItems: "center", display: "flex" }}>
-               {shuffledQuestions[questionNumber - 1][2]}
+                {shuffledQuestions[questionNumber - 1][2]}
               </div>
               <div>
                 {button ? (
@@ -156,7 +151,7 @@ export default function RowAndColumnSpacing(props) {
               variant="h5"
             >
               <div sx={{ alignItems: "center", display: "flex" }}>
-                 {shuffledQuestions[questionNumber - 1][3]}
+                {shuffledQuestions[questionNumber - 1][3]}
               </div>
               <div>
                 {button ? (
