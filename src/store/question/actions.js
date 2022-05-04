@@ -114,7 +114,6 @@ export async function generateYearQuestions(dispatch, getState) {
   // dispatch(appLoading());
   try {
     const randomMovies = await fetchFourMovies();
-    console.log("random", randomMovies);
 
     let rightAnswers = [];
     let wrongAnswers = [[], [], [], []];
