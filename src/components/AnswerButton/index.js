@@ -7,8 +7,8 @@ import wrongIcon from "../../assests/wrong2.gif";
 import "./styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  selectCounterOffset,
   selectQuestionCounter,
+  selectRoundProgress,
 } from "../../store/game/selectors";
 import {
   selectCorrectButton,
@@ -26,58 +26,67 @@ export default function RowAndColumnSpacing() {
   const shuffledQuestions = useSelector(selectShuffledQuestions);
   const dispatch = useDispatch();
   const rightAnswers = useSelector(selectRightAnswers);
-  const offset = useSelector(selectCounterOffset);
-  const correct = useSelector(selectCorrectButton);
+  const round = useSelector(selectRoundProgress);
+  const correctButton = useSelector(selectCorrectButton);
+  const [correct, setCorrect] = React.useState(4);
+  const [incorrect1, setIncorrect1] = React.useState(false);
+  const [incorrect2, setIncorrect2] = React.useState(false);
+  const [incorrect3, setIncorrect3] = React.useState(false);
+  const [incorrect4, setIncorrect4] = React.useState(false);
+  const delayedCounter = setTimeout(dispatch(incrementQuestionCounter()), 3000);
 
-  // if(buttonId === correct[questionNumber-offset-1]) {
-  //   setCorrect} else {sendCorrect image to buttonId === correct[questionNumber-offset-1]}
-
+  // if(0 !== correctButton[round]) {setIncorrect1(true)} - after timeout setIncorrect1(false)
+  //   setCorrect(correctButton[round]) - after timeout setCorrect(4)
   const handleAnswer1 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][0] ===
-      rightAnswers[questionNumber - 1].value
-    ) {
+    setCorrect(correctButton[round]);
+    if (0 === correctButton[round]) {
       dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
+      delayedCounter();
     } else {
-      dispatch(incrementQuestionCounter());
+      setIncorrect1(true);
+      delayedCounter();
+      setIncorrect1(false);
     }
+    setCorrect(4);
   };
 
   const handleAnswer2 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][1] ===
-      rightAnswers[questionNumber - 1].value
-    ) {
+    setCorrect(correctButton[round]);
+    if (1 === correctButton[round]) {
       dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
+      delayedCounter();
     } else {
-      dispatch(incrementQuestionCounter());
+      setIncorrect2(true);
+      delayedCounter();
+      setIncorrect2(false);
     }
+    setCorrect(4);
   };
 
   const handleAnswer3 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][2] ===
-      rightAnswers[questionNumber - 1].value
-    ) {
+    setCorrect(correctButton[round]);
+    if (2 === correctButton[round]) {
       dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
+      delayedCounter();
     } else {
-      dispatch(incrementQuestionCounter());
+      setIncorrect3(true);
+      delayedCounter();
+      setIncorrect3(false);
     }
+    setCorrect(4);
   };
 
   const handleAnswer4 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][3] ===
-      rightAnswers[questionNumber - 1].value
-    ) {
+    setCorrect(correctButton[round]);
+    if (3 === correctButton[round]) {
       dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
+      delayedCounter();
     } else {
-      dispatch(incrementQuestionCounter());
+      setIncorrect4(true);
+      delayedCounter();
+      setIncorrect4(false);
     }
+    setCorrect(4);
   };
 
   return (
