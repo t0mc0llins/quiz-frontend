@@ -5,13 +5,21 @@ import { useSelector } from "react-redux";
 import { selectCategories } from "../../store/gamePage/selectors";
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-// import { categoriesFetch } from "../../store/gamePage/actions";
+import { Link, useNavigate, Redirect } from "react-router-dom";
+import { formControlUnstyledClasses } from "@mui/base";
+
+const options = {
+  0: { link: "/actor", text: "Actors" },
+  1: { link: "/year", text: "Year" },
+  2: { link: "/director", text: "Director" },
+  3: { link: "/odd", text: "Odd" },
+};
 
 const SpinningWheel = () => {
   const canvasRef = useRef();
   const categories = useSelector(selectCategories);
-  // console.log("cat", categories);
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [state, setState] = useState({
     radius: 75, // PIXELS
     rotate: 0, // DEGREES
@@ -23,10 +31,6 @@ const SpinningWheel = () => {
     result: null, // INDEX
     spinning: false,
   });
-
-  // useEffect(() => {
-  //   dispatch(categoriesFetch());
-  // }, [dispatch]);
 
   const renderWheel = () => {
     // determine number/size of sectors that need to created
@@ -183,6 +187,19 @@ const SpinningWheel = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      navigate(options[state.result].link);
+    }, 3000);
+  }, [state.result]);
+
+  let reddirectedLink =
+    state.result !== null ? (
+      <Link to={options[state.result].link}>{options[state.result].text}</Link>
+    ) : null;
+
+  console.log("result", state.result);
+
   return (
     <Box className="Wheel">
       <Box>
@@ -203,13 +220,6 @@ const SpinningWheel = () => {
             WebkitTransition: `-webkit-transform ${state.easeOut}s ease-out`,
           }}
         />
-        <Box className="display">
-          <Typography id="readout">
-            <span id="result">
-              {state.result !== null ? categories[state.result] : ""}
-            </span>
-          </Typography>
-        </Box>
       </Box>
       {state.spinning ? (
         <Button
@@ -246,7 +256,25 @@ const SpinningWheel = () => {
           spin
         </Button>
       )}
+      <Box className="display" style={{ zIndex: 10 }}>
+        <Typography id="readout">
+          {" "}
+          <span id="result">{reddirectedLink}</span>
+        </Typography>
+      </Box>
     </Box>
   );
 };
 export default SpinningWheel;
+
+{
+  /* <Typography id="readout">
+            <span id="result">
+              {state.result !== null && !state.result ? (
+                <Link to="/actor"> {categories[state.result]}</Link>
+              ) : (
+                ""
+              )}
+            </span>
+          </Typography> */
+}
