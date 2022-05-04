@@ -31,9 +31,14 @@ export default function HomePage() {
         <Typography className="home-page-title" variant="h1">
           Welcome to the Movie Quiz
         </Typography>
-        <Link href="/game" className="home-page-button">
-          Start Game
-        </Link>
+        <Box className="home-page-buttons">
+          <Link href="/game" className="home-page-button">
+            Start Game
+          </Link>
+          <Link href="/scoreboard" className="home-page-button">
+            Scoreboard
+          </Link>
+        </Box>
       </Box>
       <ImageList
         className="image-list-container"
