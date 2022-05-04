@@ -5,6 +5,7 @@ export const selectWrongAnswers = (reduxState) =>
   reduxState.question.wrongAnswers;
 export const selectShuffledQuestions = (reduxState) =>
   reduxState.question.shuffledQuestions;
+
 export const selectCorrectButton = (reduxState) => {
   let buttons = [];
   for (let i = 0; reduxState.question.rightAnswers.length > i; i++) {
@@ -13,5 +14,6 @@ export const selectCorrectButton = (reduxState) => {
     );
     buttons.push(button);
   }
-  return buttons;
+  const questionNumber = reduxState.game.counter;
+  return { correctButton: buttons, questionNumber };
 };

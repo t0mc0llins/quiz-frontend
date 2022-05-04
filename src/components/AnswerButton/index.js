@@ -19,25 +19,29 @@ import {
   incrementQuestionCounter,
   incrementScore,
 } from "../../store/game/actions";
+import { useNavigate } from "react-router-dom";
+
+const initialButtonState = [
+  { id: 0, correct: false },
+  { id: 1, correct: false },
+  { id: 2, correct: false },
+  { id: 3, correct: false },
+];
+
+const TIME_PER_QUESTION = 10;
+const NR_OF_QUESTIONS = 4;
 
 export default function RowAndColumnSpacing() {
-  const questionNumber = useSelector(selectQuestionCounter);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
+  const { correctButton, questionNumber } = useSelector(selectCorrectButton);
   const dispatch = useDispatch();
-  const correctButton = useSelector(selectCorrectButton);
+  const navigate = useNavigate();
 
+  const [buttonsState, setButtonState] = useState(initialButtonState);
   const [timerState, setTimerState] = useState(null);
   const [timePassed, setTimePassed] = useState(0);
   const timeRef = useRef(timePassed);
   timeRef.current = timePassed;
-
-  const [buttonsState, setButtonState] = useState([
-    { id: 0, correct: false },
-    { id: 1, correct: false },
-    { id: 2, correct: false },
-    { id: 3, correct: false },
-  ]);
-
   // after user clicks => true
   // when we load the next question => false
   const [answered, setAnswered] = useState(false);
@@ -51,32 +55,39 @@ export default function RowAndColumnSpacing() {
   };
 
   useEffect(() => {
-    createInterval();
+    createInterval(); // start timer
   }, []);
 
+  const resetEverything = () => {
+    // 1. Reset buttonState + answered.
+    // setButtonState();
+    // 2. Load next question
+    // 3. Restart interval (10 secs)
+
+    setTimeout(() => {
+      console.log("Delayed for 5 second.");
+      setAnswered(false);
+      setButtonState(initialButtonState);
+      setTimePassed(0);
+      if (questionNumber < NR_OF_QUESTIONS) {
+        dispatch(incrementQuestionCounter());
+      } else {
+        navigate("/game");
+      }
+      createInterval();
+    }, 5000);
+  };
+
   useEffect(() => {
-    if (timeRef.current === 10) {
+    if (timeRef.current === TIME_PER_QUESTION) {
       console.log("Reset timer! next question");
       clearInterval(timerState);
-      updateButtonState();
-      // now time is up!
-      // we need to set a timeout to let users check out the answers
+      updateButtonState(); // shows answers
 
-      // setTimeout(() => {
-      //   dispatch(incrementQuestionCounter());
-      //   console.log("Delayed for 3 second.");
-      // }, "1000");
-
-      // when timeout is finished =>
-
-      // 1. Reset buttonState + answered.
-      setButtonState();
-      // 2. Load next question
-      // 3. Restart interval (10 secs)
+      // when timeout is finished => reset everything
+      resetEverything(); // waits X seconds and resets everything
     }
   }, [timeRef.current]);
-
-  // console.log("correct", correctButton);
 
   const updateButtonState = () => {
     const updatedButtonState = buttonsState.map((b) => ({
@@ -88,6 +99,7 @@ export default function RowAndColumnSpacing() {
   };
 
   const handleClick = (buttonNr) => {
+    clearInterval(timerState);
     // know which option was selected
     // check if it's the correct one
     const isCorrectAnswer = correctButton[questionNumber - 1] === buttonNr; // [0-3]
@@ -96,7 +108,7 @@ export default function RowAndColumnSpacing() {
 
     // if correct answer => increase score
     if (isCorrectAnswer) dispatch(incrementScore());
-    dispatch(incrementQuestionCounter());
+    resetEverything(); // wait X seconds and reset + load next question
   };
 
   return (
@@ -104,7 +116,7 @@ export default function RowAndColumnSpacing() {
       <div>Timer: {10 - timePassed}</div>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {[0, 1, 2, 3].map((i) => (
-          <Grid item xs={6}>
+          <Grid item xs={6} key={i}>
             <Button
               onClick={() => {
                 handleClick(i);
