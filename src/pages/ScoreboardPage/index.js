@@ -10,6 +10,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Container from "@mui/material/Container";
+import { Box } from "@mui/system";
 
 import "./style.css";
 import { Link } from "@mui/material";
@@ -39,10 +40,18 @@ export default function ScoreboardPage() {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <Link className="play-again-button" href="/game">
-        Play again{" "}
-      </Link>
+      <Box className="buttons-container">
+        <Box className="button-scoreboard">
+          <Link className="play-again-button" href="/game">
+            Play again
+          </Link>
+        </Box>
+        <Box className="button-scoreboard">
+          <Link className="play-again-button" href="/">
+            Home Page
+          </Link>
+        </Box>
+      </Box>
     </Container>
   );
 }
