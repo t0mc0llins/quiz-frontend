@@ -1,9 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  incrementQuestionCounter,
-  incrementScore,
-} from "../../store/game/actions";
 import { selectQuestionCounter } from "../../store/game/selectors";
 import { generateYearQuestions } from "../../store/question/actions";
 import {
@@ -30,7 +26,7 @@ export default function YearQuizPage() {
     "loading"
   ) : (
     <QuestionPage
-      title={`In what year was ${rightAnswers[questionNumber - 1].title}
+      title={`In what year was ${rightAnswers[questionNumber - 1].value}
     released?`}
     />
   );
