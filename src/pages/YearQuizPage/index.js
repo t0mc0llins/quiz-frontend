@@ -24,54 +24,6 @@ export default function YearQuizPage() {
     dispatch(generateYearQuestions);
   }, []);
 
-  const handleAnswer1 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][0] ===
-      rightAnswers[questionNumber - 1].year
-    ) {
-      dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
-    } else {
-      dispatch(incrementQuestionCounter());
-    }
-  };
-
-  const handleAnswer2 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][1] ===
-      rightAnswers[questionNumber - 1].year
-    ) {
-      dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
-    } else {
-      dispatch(incrementQuestionCounter());
-    }
-  };
-
-  const handleAnswer3 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][2] ===
-      rightAnswers[questionNumber - 1].year
-    ) {
-      dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
-    } else {
-      dispatch(incrementQuestionCounter());
-    }
-  };
-
-  const handleAnswer4 = () => {
-    if (
-      shuffledQuestions[questionNumber - 1][3] ===
-      rightAnswers[questionNumber - 1].year
-    ) {
-      dispatch(incrementScore());
-      dispatch(incrementQuestionCounter());
-    } else {
-      dispatch(incrementQuestionCounter());
-    }
-  };
-
   return wrongAnswers.length === 0 ||
     rightAnswers.length === 0 ||
     shuffledQuestions.length === 0 ? (
@@ -80,10 +32,6 @@ export default function YearQuizPage() {
     <QuestionPage
       title={`In what year was ${rightAnswers[questionNumber - 1].title}
     released?`}
-      handleAnswer1={handleAnswer1}
-      handleAnswer2={handleAnswer2}
-      handleAnswer3={handleAnswer3}
-      handleAnswer4={handleAnswer4}
     />
   );
 }

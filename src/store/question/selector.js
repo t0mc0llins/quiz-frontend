@@ -9,7 +9,7 @@ export const selectCorrectButton = (reduxState) => {
   let buttons;
   for (let i = 0; reduxState.question.rightAnswers.length > i; i++) {
     let button = reduxState.question.shuffledQuestions[i].indexOf(
-      reduxState.question.rightAnswers[i]
+      reduxState.question.rightAnswers[i].value
     );
     buttons.push(button);
   }

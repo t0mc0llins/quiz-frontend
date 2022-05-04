@@ -5,14 +5,80 @@ import { Button, Typography } from "@mui/material";
 import rightIcon from "../../assests/right.gif";
 import wrongIcon from "../../assests/wrong2.gif";
 import "./styles.css";
-import { useSelector } from "react-redux";
-import { selectQuestionCounter } from "../../store/game/selectors";
-import { selectShuffledQuestions } from "../../store/question/selector";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCounterOffset,
+  selectQuestionCounter,
+} from "../../store/game/selectors";
+import {
+  selectCorrectButton,
+  selectRightAnswers,
+  selectShuffledQuestions,
+} from "../../store/question/selector";
+import {
+  incrementQuestionCounter,
+  incrementScore,
+} from "../../store/game/actions";
 
-export default function RowAndColumnSpacing(props) {
+export default function RowAndColumnSpacing() {
   const [button, setButton] = React.useState(false);
   const questionNumber = useSelector(selectQuestionCounter);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
+  const dispatch = useDispatch();
+  const rightAnswers = useSelector(selectRightAnswers);
+  const offset = useSelector(selectCounterOffset);
+  const correct = useSelector(selectCorrectButton);
+
+  // if(buttonId === correct[questionNumber-offset-1]) {
+  //   setCorrect} else {sendCorrect image to buttonId === correct[questionNumber-offset-1]}
+
+  const handleAnswer1 = () => {
+    if (
+      shuffledQuestions[questionNumber - 1][0] ===
+      rightAnswers[questionNumber - 1].value
+    ) {
+      dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
+    }
+  };
+
+  const handleAnswer2 = () => {
+    if (
+      shuffledQuestions[questionNumber - 1][1] ===
+      rightAnswers[questionNumber - 1].value
+    ) {
+      dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
+    }
+  };
+
+  const handleAnswer3 = () => {
+    if (
+      shuffledQuestions[questionNumber - 1][2] ===
+      rightAnswers[questionNumber - 1].value
+    ) {
+      dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
+    }
+  };
+
+  const handleAnswer4 = () => {
+    if (
+      shuffledQuestions[questionNumber - 1][3] ===
+      rightAnswers[questionNumber - 1].value
+    ) {
+      dispatch(incrementScore());
+      dispatch(incrementQuestionCounter());
+    } else {
+      dispatch(incrementQuestionCounter());
+    }
+  };
 
   return (
     <Box sx={{ mt: 4, mb: 2 }}>
@@ -21,7 +87,7 @@ export default function RowAndColumnSpacing(props) {
           <Button
             onClick={() => {
               setButton(true);
-              props.handleAnswer1();
+              handleAnswer1();
             }}
             color="secondary"
             xs={6}
@@ -60,7 +126,7 @@ export default function RowAndColumnSpacing(props) {
           <Button
             onClick={() => {
               setButton(true);
-              props.handleAnswer2();
+              handleAnswer2();
             }}
             color="secondary"
             xs={6}
@@ -94,7 +160,7 @@ export default function RowAndColumnSpacing(props) {
           <Button
             onClick={() => {
               setButton(true);
-              props.handleAnswer3();
+              handleAnswer3();
             }}
             color="secondary"
             xs={6}
@@ -133,7 +199,7 @@ export default function RowAndColumnSpacing(props) {
           <Button
             onClick={() => {
               setButton(true);
-              props.andleAnswer4();
+              handleAnswer4();
             }}
             color="secondary"
             xs={6}

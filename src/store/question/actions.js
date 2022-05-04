@@ -88,17 +88,17 @@ export async function generateYearQuestions(dispatch, getState) {
 
     for (let i = 0; randomMovies.length > i; i++) {
       rightAnswers.push({
-        year: parseInt(randomMovies[i].release_date.substring(0, 4)),
+        value: parseInt(randomMovies[i].release_date.substring(0, 4)),
         poster: randomMovies[i].poster_path,
         title: randomMovies[i].title,
       });
       while (wrongAnswers[i].length < 3) {
         let change = Math.floor(Math.random() * 30) + 1;
-        let answer = rightAnswers[i].year - 15 + change;
+        let answer = rightAnswers[i].value - 15 + change;
         if (
           answer <= 2022 &&
           wrongAnswers[i].indexOf(answer) === -1 &&
-          rightAnswers[i].year !== answer
+          rightAnswers[i].value !== answer
         )
           wrongAnswers[i].push(answer);
       }
@@ -106,7 +106,7 @@ export async function generateYearQuestions(dispatch, getState) {
     const answers = { rightAnswers, wrongAnswers };
     dispatch(setQuestions(answers));
     const rightAnswerYears = rightAnswers.map((a) => {
-      return a.year;
+      return a.value;
     });
 
     const random = shuffleAnswers(wrongAnswers, rightAnswerYears);
@@ -129,7 +129,7 @@ export async function generateActorQuestions(dispatch, getState) {
 
     for (let i = 0; casts.length > i; i++) {
       rightAnswers.push({
-        name: casts[i][Math.floor(Math.random() * 5)].name.toLowerCase(),
+        value: casts[i][Math.floor(Math.random() * 5)].name.toLowerCase(),
         poster: details[i].poster_path,
         title: details[i].title,
       });
@@ -149,7 +149,7 @@ export async function generateActorQuestions(dispatch, getState) {
     const answers = { rightAnswers, wrongAnswers };
     dispatch(setQuestions(answers));
     const rightAnswerNames = rightAnswers.map((a) => {
-      return a.name;
+      return a.value;
     });
 
     const random = shuffleAnswers(wrongAnswers, rightAnswerNames);

@@ -30,7 +30,7 @@ export default function ActorQuiz() {
   const handleAnswer1 = () => {
     if (
       shuffledQuestions[questionNumber - 1][0] ===
-      rightAnswers[questionNumber - 1].name
+      rightAnswers[questionNumber - 1].value
     ) {
       dispatch(incrementScore());
     }
@@ -40,7 +40,7 @@ export default function ActorQuiz() {
   const handleAnswer2 = () => {
     if (
       shuffledQuestions[questionNumber - 1][1] ===
-      rightAnswers[questionNumber - 1].name
+      rightAnswers[questionNumber - 1].value
     ) {
       dispatch(incrementScore());
     }
@@ -50,7 +50,7 @@ export default function ActorQuiz() {
   const handleAnswer3 = () => {
     if (
       shuffledQuestions[questionNumber - 1][2] ===
-      rightAnswers[questionNumber - 1].name
+      rightAnswers[questionNumber - 1].value
     ) {
       dispatch(incrementScore());
     }
@@ -60,7 +60,7 @@ export default function ActorQuiz() {
   const handleAnswer4 = () => {
     if (
       shuffledQuestions[questionNumber - 1][3] ===
-      rightAnswers[questionNumber - 1].name
+      rightAnswers[questionNumber - 1].value
     ) {
       dispatch(incrementScore());
     }
