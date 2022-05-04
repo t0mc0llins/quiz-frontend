@@ -1,6 +1,7 @@
 import axios from "axios";
 import { actors } from "../../config/actors";
 import { apiKey } from "../../config/constants";
+import { directors } from "../../config/directors";
 import { shuffleAnswers } from "../../config/functions";
 import { set_shuffled_questions, set_questions } from "./types";
 
@@ -64,6 +65,38 @@ async function fetchFourCasts() {
         `https://api.themoviedb.org/3/movie/${randomNumbers[i]}?api_key=${apiKey}&language=en-US`
       );
       const cast = responseCast.data.cast;
+      const details = responseDetails.data;
+      castLists.push(cast);
+      movieDetails.push(details);
+    }
+    return { casts: castLists, details: movieDetails };
+    // dispatch(appDoneLoading());
+  } catch (error) {
+    console.log(error.message);
+    // dispatch(setMessage("danger", true, error.message));
+  }
+  // dispatch(appDoneLoading());
+}
+
+async function fetchFourCrews() {
+  // dispatch(appLoading());
+  try {
+    const roundLength = 4;
+    let randomNumbers = [];
+    while (randomNumbers.length < roundLength) {
+      let r = Math.floor(Math.random() * 500) + 1;
+      if (randomNumbers.indexOf(r) === -1) randomNumbers.push(r);
+    }
+    let castLists = [];
+    let movieDetails = [];
+    for (let i = 0; randomNumbers.length > i; i++) {
+      const responseCast = await axios.get(
+        `https://api.themoviedb.org/3/movie/${randomNumbers[i]}/credits?api_key=${apiKey}&language=en-US`
+      );
+      const responseDetails = await axios.get(
+        `https://api.themoviedb.org/3/movie/${randomNumbers[i]}?api_key=${apiKey}&language=en-US`
+      );
+      const cast = responseCast.data.crew;
       const details = responseDetails.data;
       castLists.push(cast);
       movieDetails.push(details);
@@ -184,6 +217,50 @@ export async function generateOddOneQuestions(dispatch, getState) {
             : true
         )
           wrongAnswers[i].push(answer.toLowerCase());
+      }
+    }
+    const answers = { rightAnswers, wrongAnswers };
+    dispatch(setQuestions(answers));
+    const rightAnswerNames = rightAnswers.map((a) => {
+      return a.value;
+    });
+
+    const random = shuffleAnswers(wrongAnswers, rightAnswerNames);
+    dispatch(setShuffledQuestions(random));
+  } catch (error) {
+    console.log(error.message);
+    // dispatch(setMessage("danger", true, error.message));
+  }
+}
+
+export async function generateDirectorQuestions(dispatch, getState) {
+  // dispatch(appLoading());
+  try {
+    const response = await fetchFourCrews();
+    const casts = response.casts;
+    const details = response.details;
+
+    let rightAnswers = [];
+    let wrongAnswers = [[], [], [], []];
+
+    for (let i = 0; casts.length > i; i++) {
+      let director = casts[i].find((c) => c.job === "Director");
+      rightAnswers.push({
+        value: director.name.toLowerCase(),
+        poster: details[i].poster_path,
+        title: details[i].title,
+      });
+      let directorNames = directors.map((d) => {
+        return d.director.toLowerCase();
+      });
+      while (wrongAnswers[i].length < 3) {
+        let answer = directorNames[Math.floor(Math.random() * 146)];
+        if (
+          answer !== "n/a" && rightAnswers[i].value !== answer && i !== 0
+            ? wrongAnswers[i].indexOf(answer) === -1
+            : true
+        )
+          wrongAnswers[i].push(answer);
       }
     }
     const answers = { rightAnswers, wrongAnswers };
