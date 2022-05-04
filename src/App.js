@@ -19,7 +19,7 @@ function App() {
         <Route path="/year" element={<YearQuizPage />} />
         <Route path="/odd" element={<OddOneQuizPage />} />
         <Route path="/director" element={<DirectorQuizPage />} />
-        <Route path="/newscore" element={<NewScoreForm />} />
+        <Route path="/gameover" element={<NewScoreForm />} />
       </Routes>
     </div>
   );
