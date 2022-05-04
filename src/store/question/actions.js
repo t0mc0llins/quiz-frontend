@@ -159,3 +159,43 @@ export async function generateActorQuestions(dispatch, getState) {
     // dispatch(setMessage("danger", true, error.message));
   }
 }
+
+export async function generateOddOneQuestions(dispatch, getState) {
+  // dispatch(appLoading());
+  try {
+    const response = await fetchFourCasts();
+    const casts = response.casts;
+    const details = response.details;
+
+    let rightAnswers = [];
+    let wrongAnswers = [[], [], [], []];
+
+    for (let i = 0; casts.length > i; i++) {
+      rightAnswers.push({
+        value: actors[Math.floor(Math.random() * 500)].name.toLowerCase(),
+        poster: details[i].poster_path,
+        title: details[i].title,
+      });
+      while (wrongAnswers[i].length < 3) {
+        let answer = casts[i][Math.floor(Math.random() * 10)].name;
+        if (
+          rightAnswers[i].value !== answer.toLowerCase() && i !== 0
+            ? wrongAnswers[i].indexOf(answer.toLowerCase()) === -1
+            : true
+        )
+          wrongAnswers[i].push(answer.toLowerCase());
+      }
+    }
+    const answers = { rightAnswers, wrongAnswers };
+    dispatch(setQuestions(answers));
+    const rightAnswerNames = rightAnswers.map((a) => {
+      return a.value;
+    });
+
+    const random = shuffleAnswers(wrongAnswers, rightAnswerNames);
+    dispatch(setShuffledQuestions(random));
+  } catch (error) {
+    console.log(error.message);
+    // dispatch(setMessage("danger", true, error.message));
+  }
+}
