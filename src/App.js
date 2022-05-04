@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import OddOneQuizPage from "./pages/OddOneQuizPage";
 import ScoreboardPage from "./pages/ScoreboardPage";
 import YearQuizPage from "./pages/YearQuizPage";
+import NewScoreForm from "./components/NewScoreForm";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/year" element={<YearQuizPage />} />
         <Route path="/odd" element={<OddOneQuizPage />} />
         <Route path="/director" element={<DirectorQuizPage />} />
+        <Route path="/gameover" element={<NewScoreForm />} />
       </Routes>
     </div>
   );
