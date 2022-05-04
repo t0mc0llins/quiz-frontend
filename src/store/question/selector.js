@@ -6,7 +6,7 @@ export const selectWrongAnswers = (reduxState) =>
 export const selectShuffledQuestions = (reduxState) =>
   reduxState.question.shuffledQuestions;
 export const selectCorrectButton = (reduxState) => {
-  let buttons;
+  let buttons = [];
   for (let i = 0; reduxState.question.rightAnswers.length > i; i++) {
     let button = reduxState.question.shuffledQuestions[i].indexOf(
       reduxState.question.rightAnswers[i].value

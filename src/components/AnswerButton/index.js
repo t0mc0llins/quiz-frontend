@@ -33,7 +33,7 @@ export default function RowAndColumnSpacing() {
   const [incorrect2, setIncorrect2] = React.useState(false);
   const [incorrect3, setIncorrect3] = React.useState(false);
   const [incorrect4, setIncorrect4] = React.useState(false);
-  const delayedCounter = setTimeout(dispatch(incrementQuestionCounter()), 3000);
+  const delayedCounter = setTimeout(dispatch(incrementQuestionCounter), 3000);
 
   // if(0 !== correctButton[round]) {setIncorrect1(true)} - after timeout setIncorrect1(false)
   //   setCorrect(correctButton[round]) - after timeout setCorrect(4)
