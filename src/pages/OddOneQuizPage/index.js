@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectQuestionCounter } from "../../store/game/selectors";
-import { generateYearQuestions } from "../../store/question/actions";
+import { generateOddOneQuestions } from "../../store/question/actions";
 import {
   selectRightAnswers,
   selectShuffledQuestions,
@@ -9,7 +9,7 @@ import {
 } from "../../store/question/selector";
 import QuestionPage from "../QuestionPage";
 
-export default function YearQuizPage() {
+export default function OddOneQuizPage() {
   const dispatch = useDispatch();
   const wrongAnswers = useSelector(selectWrongAnswers);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
@@ -17,7 +17,7 @@ export default function YearQuizPage() {
   const questionNumber = useSelector(selectQuestionCounter);
 
   useEffect(() => {
-    dispatch(generateYearQuestions);
+    dispatch(generateOddOneQuestions);
   }, []);
 
   return wrongAnswers.length === 0 ||
@@ -26,8 +26,9 @@ export default function YearQuizPage() {
     "loading"
   ) : (
     <QuestionPage
-      title={`In what year was ${rightAnswers[questionNumber - 1].title}
-    released?`}
+      title={`Which one of these actors was not in ${
+        rightAnswers[questionNumber - 1].title
+      }?`}
     />
   );
 }
