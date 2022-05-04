@@ -45,10 +45,15 @@
   margin: 0;
   height: 100%;
 }
-
-.home-page-button {
+.home-page-buttons {
   z-index: 10;
   position: absolute !important;
+  color: #eadedb !important;
+  width: 100%;
+}
+
+.home-page-button {
+  margin: 2% !important;
   border-style: double;
   padding: 2%;
   border-radius: 10px;
@@ -63,20 +68,20 @@
   );
 }
 @media screen and (max-width: 667px) {
-  .home-page-button {
+  .home-page-buttons {
     padding: 2%;
     font-size: 130%;
     top: 50%;
   }
 }
 @media screen and (min-width: 668px) {
-  .home-page-button {
+  .home-page-buttons {
     font-size: 250%;
     top: 53%;
   }
 }
 @media screen and (min-width: 900px) {
-  .home-page-button {
+  .home-page-buttons {
     font-size: 250%;
     top: 60%;
   }
