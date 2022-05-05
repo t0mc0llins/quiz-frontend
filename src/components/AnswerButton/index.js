@@ -125,7 +125,7 @@ export default function RowAndColumnSpacing() {
 
   return (
     <Box sx={{ mt: 4, mb: 2 }}>
-      <div>Timer: {10 - timePassed}</div>
+      <Typography variant="h5">Timer: {10 - timePassed}</Typography>
       <Grid container rowSpacing={3} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {[0, 1, 2, 3].map((i) => (
           <Grid item xs={6} key={i}>

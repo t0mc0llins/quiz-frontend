@@ -190,91 +190,94 @@ const SpinningWheel = () => {
   useEffect(() => {
     setTimeout(() => {
       navigate(options[state.result].link);
-    }, 3000);
+    }, 1000);
   }, [state.result]);
 
   let reddirectedLink =
     state.result !== null ? (
-      <Link to={options[state.result].link}>{options[state.result].text}</Link>
+      <Link
+        style={{ padding: "10px", textDecoration: "none" }}
+        to={options[state.result].link}
+      >
+        {options[state.result].text}
+      </Link>
     ) : null;
 
   console.log("result", state.result);
 
   return (
-    <Box className="Wheel">
-      <Box>
-        <span id="selector">&#9660;</span>
-        <canvas
-          id="wheel"
-          width="500"
-          height="500"
-          ref={canvasRef}
-          style={{
-            margin: 0,
-            letterSpacing: 2,
-            fontFamily: "Happy Monkey ",
-            fontSize: 7,
-            color: "white",
-            height: 750,
-            WebkitTransform: `rotate(${state.rotate}deg)`,
-            WebkitTransition: `-webkit-transform ${state.easeOut}s ease-out`,
-          }}
-        />
+    <div>
+      {" "}
+      <Typography
+        sx={{ p: 2, fontFamily: `'Happy Monkey', cursive`, color: "white" }}
+        variant="h2"
+        component="h2"
+      >
+        Spin the Wheel
+      </Typography>
+      <Box className="Wheel">
+        <Box>
+          <span id="selector">&#9660;</span>
+          <canvas
+            id="wheel"
+            width="500"
+            height="500"
+            ref={canvasRef}
+            style={{
+              margin: 0,
+              letterSpacing: 2,
+              fontFamily: "Happy Monkey ",
+              fontSize: 7,
+              color: "white",
+              height: 750,
+              WebkitTransform: `rotate(${state.rotate}deg)`,
+              WebkitTransition: `-webkit-transform ${state.easeOut}s ease-out`,
+            }}
+          />
+        </Box>
+        {state.spinning ? (
+          <Button
+            color="secondary"
+            xs={6}
+            sx={{
+              p: 2,
+              width: "250px",
+              borderRadius: "15px",
+              textAlign: "center",
+              fontFamily: "Happy Monkey",
+              letterSpacing: 5,
+            }}
+            variant="contained"
+            onClick={() => reset()}
+          >
+            reset
+          </Button>
+        ) : (
+          <Button
+            color="secondary"
+            xs={6}
+            sx={{
+              p: 2,
+              width: "250px",
+              borderRadius: "15px",
+              textAlign: "center",
+              fontFamily: "Happy Monkey",
+              letterSpacing: 5,
+            }}
+            variant="contained"
+            onClick={() => spin()}
+          >
+            spin
+          </Button>
+        )}
+        <Box className="display" style={{ zIndex: 10 }}>
+          <Typography id="readout">
+            {" "}
+            <span id="result">{reddirectedLink}</span>
+          </Typography>
+        </Box>
       </Box>
-      {state.spinning ? (
-        <Button
-          color="secondary"
-          xs={6}
-          sx={{
-            p: 2,
-            width: "250px",
-            borderRadius: "15px",
-            textAlign: "center",
-            fontFamily: "Happy Monkey",
-            letterSpacing: 5,
-          }}
-          variant="contained"
-          onClick={() => reset()}
-        >
-          reset
-        </Button>
-      ) : (
-        <Button
-          color="secondary"
-          xs={6}
-          sx={{
-            p: 2,
-            width: "250px",
-            borderRadius: "15px",
-            textAlign: "center",
-            fontFamily: "Happy Monkey",
-            letterSpacing: 5,
-          }}
-          variant="contained"
-          onClick={() => spin()}
-        >
-          spin
-        </Button>
-      )}
-      <Box className="display" style={{ zIndex: 10 }}>
-        <Typography id="readout">
-          {" "}
-          <span id="result">{reddirectedLink}</span>
-        </Typography>
-      </Box>
-    </Box>
+    </div>
   );
 };
 export default SpinningWheel;
-
-{
-  /* <Typography id="readout">
-            <span id="result">
-              {state.result !== null && !state.result ? (
-                <Link to="/actor"> {categories[state.result]}</Link>
-              ) : (
-                ""
-              )}
-            </span>
-          </Typography> */
-}

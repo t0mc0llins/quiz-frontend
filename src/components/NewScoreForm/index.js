@@ -27,7 +27,10 @@ export default function NewScoreForm() {
   return (
     <div className="content">
       <Typography
-        sx={{ p: 2, fontFamily: `'Happy Monkey', cursive` }}
+        sx={{
+          paddingTop: "20",
+          fontFamily: `'Happy Monkey', cursive`,
+        }}
         variant="h2"
         component="h2"
       >
