@@ -36,6 +36,7 @@ export default function RowAndColumnSpacing() {
   const { correctButton, questionNumber } = useSelector(selectCorrectButton);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const roundProgress = useSelector(selectRoundProgress);
 
   const [buttonsState, setButtonState] = useState(initialButtonState);
   const [timerState, setTimerState] = useState(null);
@@ -69,12 +70,13 @@ export default function RowAndColumnSpacing() {
       setAnswered(false);
       setButtonState(initialButtonState);
       setTimePassed(0);
-      if (questionNumber < NR_OF_QUESTIONS) {
+      if (0 !== roundProgress) {
         dispatch(incrementQuestionCounter());
       } else if (questionNumber > 13) {
         navigate("/gameover");
       } else {
         navigate("/game");
+        dispatch(incrementQuestionCounter());
       }
 
       createInterval();
