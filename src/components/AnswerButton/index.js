@@ -71,8 +71,6 @@ export default function RowAndColumnSpacing() {
       setTimePassed(0);
       if (questionNumber < NR_OF_QUESTIONS) {
         dispatch(incrementQuestionCounter());
-      } else if (questionNumber > 13) {
-        navigate("/gameover");
       } else {
         navigate("/game");
       }

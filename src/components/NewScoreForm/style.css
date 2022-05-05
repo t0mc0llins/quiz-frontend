@@ -1,1 +1,9 @@
-
+.form-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-page.content {
+  width: 100px;
+  height: 100px;
+}
