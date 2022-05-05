@@ -3,7 +3,12 @@ import { actors } from "../../config/actors";
 import { apiKey } from "../../config/constants";
 import { directors } from "../../config/directors";
 import { shuffleAnswers } from "../../config/functions";
-import { set_shuffled_questions, set_questions } from "./types";
+import { movieIds } from "../../config/movieIds";
+import {
+  set_shuffled_questions,
+  set_questions,
+  reset_question_store,
+} from "./types";
 
 function setQuestions(answers) {
   return {
@@ -16,6 +21,12 @@ function setShuffledQuestions(answers) {
   return {
     type: set_shuffled_questions,
     payload: answers,
+  };
+}
+
+export function resetQuestionStore() {
+  return {
+    type: reset_question_store,
   };
 }
 
@@ -52,7 +63,7 @@ async function fetchFourCasts() {
     const roundLength = 4;
     let randomNumbers = [];
     while (randomNumbers.length < roundLength) {
-      let r = Math.floor(Math.random() * 500) + 1;
+      let r = movieIds[Math.floor(Math.random() * movieIds.length)];
       if (randomNumbers.indexOf(r) === -1) randomNumbers.push(r);
     }
     let castLists = [];
@@ -84,7 +95,7 @@ async function fetchFourCrews() {
     const roundLength = 4;
     let randomNumbers = [];
     while (randomNumbers.length < roundLength) {
-      let r = Math.floor(Math.random() * 500) + 1;
+      let r = movieIds[Math.floor(Math.random() * movieIds.length)];
       if (randomNumbers.indexOf(r) === -1) randomNumbers.push(r);
     }
     let castLists = [];
@@ -275,3 +286,39 @@ export async function generateDirectorQuestions(dispatch, getState) {
     // dispatch(setMessage("danger", true, error.message));
   }
 }
+
+// async function fetchFourCasts() {
+//   // dispatch(appLoading());
+//   try {
+//     const roundLength = 4;
+//     let castLists = [];
+//     let movieDetails = [];
+//     let i = 0;
+//     while (roundLength > i) {
+//       let r = Math.floor(Math.random() * 600) + 100;
+//       const responseCast = await axios.get(
+//         `https://api.themoviedb.org/3/movie/${r}/credits?api_key=${apiKey}&language=en-US`
+//       );
+//       console.log(responseCast);
+//       if (
+//         responseCast.status === 200 &&
+//         castLists.indexOf(responseCast.data.cast) === -1
+//       ) {
+//         const responseDetails = await axios.get(
+//           `https://api.themoviedb.org/3/movie/${r}?api_key=${apiKey}&language=en-US`
+//         );
+//         const cast = responseCast.data.cast;
+//         const details = responseDetails.data;
+//         castLists.push(cast);
+//         movieDetails.push(details);
+//         i++;
+//       }
+//     }
+//     return { casts: castLists, details: movieDetails };
+//     // dispatch(appDoneLoading());
+//   } catch (error) {
+//     console.log(error.message);
+//     // dispatch(setMessage("danger", true, error.message));
+//   }
+//   // dispatch(appDoneLoading());
+// }
