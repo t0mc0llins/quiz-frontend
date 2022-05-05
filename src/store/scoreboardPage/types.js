@@ -1,1 +1,2 @@
 export const FETCH_SCOREBOARD = "FETCH_SCOREBOARD";
+export const POST_SCORE = "POST_SCORE";
