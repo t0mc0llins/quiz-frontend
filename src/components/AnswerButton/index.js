@@ -70,7 +70,6 @@ export default function RowAndColumnSpacing() {
     // 3. Restart interval (10 secs)
 
     setTimeout(() => {
-      console.log("Delayed for 5 second.");
       setAnswered(false);
       setButtonState(initialButtonState);
       setTimePassed(0);
@@ -85,7 +84,7 @@ export default function RowAndColumnSpacing() {
       }
 
       createInterval();
-    }, 5000);
+    }, 1000);
   };
 
   useEffect(() => {
