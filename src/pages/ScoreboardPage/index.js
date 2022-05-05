@@ -19,9 +19,12 @@ export default function ScoreboardPage() {
   const dispatch = useDispatch();
   const scoreboard = useSelector(selectScoreboard);
 
-  console.log("scoreboard= ", scoreboard);
+  useEffect(() => {
+    console.log(scoreboard);
+  }, [scoreboard]);
 
   useEffect(() => {
+    console.log("IM FETCHING THE SCORES!");
     dispatch(fetchAllScores());
   }, []);
 
