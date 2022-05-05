@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectQuestionCounter } from "../../store/game/selectors";
+import { selectRoundProgress } from "../../store/game/selectors";
 import { generateOddOneQuestions } from "../../store/question/actions";
 import {
   selectRightAnswers,
@@ -14,7 +14,7 @@ export default function OddOneQuizPage() {
   const wrongAnswers = useSelector(selectWrongAnswers);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
   const rightAnswers = useSelector(selectRightAnswers);
-  const questionNumber = useSelector(selectQuestionCounter);
+  const roundProgress = useSelector(selectRoundProgress);
 
   useEffect(() => {
     dispatch(generateOddOneQuestions);
@@ -27,7 +27,7 @@ export default function OddOneQuizPage() {
   ) : (
     <QuestionPage
       title={`Which one of these actors was not in ${
-        rightAnswers[questionNumber - 1].title
+        rightAnswers[roundProgress !== 0 ? roundProgress - 1 : 3].title
       }?`}
     />
   );
