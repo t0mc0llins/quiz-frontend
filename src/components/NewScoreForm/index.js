@@ -10,6 +10,7 @@ export default function NewScoreForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const navigate = useNavigate();
+  const [waiting, setWaiting] = useState(false);
 
   //need to get score-data from state?(or as a props from prev-page)
   const score = useSelector(selectScore);
@@ -20,9 +21,9 @@ export default function NewScoreForm() {
     // need to dispatch name and score to db
     // need to redirect to scoreboard
     dispatch(postScore(name, score));
-    setName(" ");
-
-    navigate("/scoreboard");
+    setName("");
+    setWaiting(true);
+    setTimeout(() => navigate("/scoreboard"), 1000);
   };
   return (
     <div className="content">
@@ -54,6 +55,7 @@ export default function NewScoreForm() {
           onChange={(e) => setName(e.target.value)}
         ></TextField>
       </form>
+      {waiting ? <p>Loading...</p> : <></>}
     </div>
   );
 }
