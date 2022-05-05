@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectQuestionCounter,
   selectRoundProgress,
+  selectScore,
 } from "../../store/game/selectors";
 import {
   selectCorrectButton,
@@ -31,6 +32,9 @@ const initialButtonState = [
 const TIME_PER_QUESTION = 10;
 
 export default function RowAndColumnSpacing() {
+  const score = useSelector(selectScore);
+  console.log(score);
+
   const shuffledQuestions = useSelector(selectShuffledQuestions);
   const { correctButton, questionNumber } = useSelector(selectCorrectButton);
   const dispatch = useDispatch();
