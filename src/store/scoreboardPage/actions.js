@@ -8,9 +8,9 @@ export const fetchScoreboard = (scoreboard) => ({
   payload: scoreboard,
 });
 
-export const scorePostSuccess = (score) => ({
+export const scorePostSuccess = (userScore) => ({
   type: POST_SCORE,
-  payload: score,
+  payload: userScore,
 });
 
 export const fetchAllScores = () => {
@@ -34,7 +34,8 @@ export const postScore = (username, score) => {
         score,
       });
       console.log(response.data);
-      dispatch(scorePostSuccess(response.data));
+      const userScore = { username: username, score: score };
+      dispatch(scorePostSuccess(userScore));
     } catch (e) {
       console.log(e.message);
     }

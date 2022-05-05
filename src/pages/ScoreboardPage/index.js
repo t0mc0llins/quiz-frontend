@@ -23,7 +23,7 @@ export default function ScoreboardPage() {
 
   useEffect(() => {
     dispatch(fetchAllScores());
-  }, [dispatch]);
+  }, []);
 
   return (
     <Container className="table-container">
