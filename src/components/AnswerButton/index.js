@@ -19,6 +19,7 @@ import {
   incrementScore,
 } from "../../store/game/actions";
 import { useNavigate } from "react-router-dom";
+import { resetQuestionStore } from "../../store/question/actions";
 
 const initialButtonState = [
   { id: 0, correct: false },
@@ -71,10 +72,11 @@ export default function RowAndColumnSpacing() {
       setTimePassed(0);
       if (0 !== roundProgress) {
         dispatch(incrementQuestionCounter());
-      } else if (counter > 12) {
+      } else if (counter === 12) {
         navigate("/gameover");
       } else {
         navigate("/game");
+        dispatch(resetQuestionStore());
         dispatch(incrementQuestionCounter());
       }
 

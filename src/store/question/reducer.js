@@ -1,4 +1,8 @@
-import { set_shuffled_questions, set_questions } from "./types";
+import {
+  set_shuffled_questions,
+  set_questions,
+  reset_question_store,
+} from "./types";
 
 const initialState = {
   rightAnswers: [],
@@ -20,6 +24,9 @@ export default function questionSliceReducer(state = initialState, action) {
         ...state,
         shuffledQuestions: action.payload,
       };
+    }
+    case reset_question_store: {
+      return initialState;
     }
     default: {
       return state;
