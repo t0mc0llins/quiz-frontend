@@ -2,13 +2,18 @@ import React from "react";
 import { Box, Typography, Container } from "@mui/material";
 import { useSelector } from "react-redux";
 import AnswerButton from "../../components/AnswerButton";
-import { selectQuestionCounter, selectScore } from "../../store/game/selectors";
+import {
+  selectQuestionCounter,
+  selectRoundProgress,
+  selectScore,
+} from "../../store/game/selectors";
 import { selectRightAnswers } from "../../store/question/selector";
 
 export default function QuestionPage(props) {
   const score = useSelector(selectScore);
   const questionNumber = useSelector(selectQuestionCounter);
   const rightAnswers = useSelector(selectRightAnswers);
+  const roundProgress = useSelector(selectRoundProgress);
 
   return (
     <div>
@@ -79,7 +84,7 @@ export default function QuestionPage(props) {
           }}
           alt="Movie"
           src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${
-            rightAnswers[questionNumber - 1].poster
+            rightAnswers[roundProgress !== 0 ? roundProgress - 1 : 3].poster
           }`}
         />
 

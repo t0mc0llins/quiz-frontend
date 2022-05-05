@@ -12,7 +12,6 @@ import {
 } from "../../store/game/selectors";
 import {
   selectCorrectButton,
-  selectRightAnswers,
   selectShuffledQuestions,
 } from "../../store/question/selector";
 import {
@@ -29,13 +28,14 @@ const initialButtonState = [
 ];
 
 const TIME_PER_QUESTION = 10;
-const NR_OF_QUESTIONS = 4;
 
 export default function RowAndColumnSpacing() {
   const shuffledQuestions = useSelector(selectShuffledQuestions);
   const { correctButton, questionNumber } = useSelector(selectCorrectButton);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const roundProgress = useSelector(selectRoundProgress);
+  const counter = useSelector(selectQuestionCounter);
 
   const [buttonsState, setButtonState] = useState(initialButtonState);
   const [timerState, setTimerState] = useState(null);
@@ -69,10 +69,13 @@ export default function RowAndColumnSpacing() {
       setAnswered(false);
       setButtonState(initialButtonState);
       setTimePassed(0);
-      if (questionNumber < NR_OF_QUESTIONS) {
+      if (0 !== roundProgress) {
         dispatch(incrementQuestionCounter());
+      } else if (counter > 12) {
+        navigate("/gameover");
       } else {
         navigate("/game");
+        dispatch(incrementQuestionCounter());
       }
 
       createInterval();
@@ -93,7 +96,8 @@ export default function RowAndColumnSpacing() {
   const updateButtonState = () => {
     const updatedButtonState = buttonsState.map((b) => ({
       ...b,
-      correct: b.id === correctButton[questionNumber - 1],
+      correct:
+        b.id === correctButton[roundProgress !== 0 ? roundProgress - 1 : 3],
     }));
     setButtonState(updatedButtonState);
     setAnswered(true);
@@ -103,7 +107,8 @@ export default function RowAndColumnSpacing() {
     clearInterval(timerState);
     // know which option was selected
     // check if it's the correct one
-    const isCorrectAnswer = correctButton[questionNumber - 1] === buttonNr; // [0-3]
+    const isCorrectAnswer =
+      correctButton[roundProgress !== 0 ? roundProgress - 1 : 3] === buttonNr; // [0-3]
     // update all answers state + set answered to true
     updateButtonState();
 
@@ -138,7 +143,11 @@ export default function RowAndColumnSpacing() {
                 variant="h5"
               >
                 <div sx={{ alignItems: "center", display: "flex" }}>
-                  {shuffledQuestions[questionNumber - 1][i]}
+                  {
+                    shuffledQuestions[
+                      [roundProgress !== 0 ? roundProgress - 1 : 3]
+                    ][i]
+                  }
                 </div>
                 <div>
                   {answered &&

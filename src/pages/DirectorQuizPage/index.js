@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectQuestionCounter } from "../../store/game/selectors";
+import { selectRoundProgress } from "../../store/game/selectors";
 import { generateDirectorQuestions } from "../../store/question/actions";
 import {
   selectRightAnswers,
@@ -14,7 +14,7 @@ export default function DirectorQuizPage() {
   const wrongAnswers = useSelector(selectWrongAnswers);
   const shuffledQuestions = useSelector(selectShuffledQuestions);
   const rightAnswers = useSelector(selectRightAnswers);
-  const questionNumber = useSelector(selectQuestionCounter);
+  const roundProgress = useSelector(selectRoundProgress);
 
   useEffect(() => {
     dispatch(generateDirectorQuestions);
@@ -26,7 +26,9 @@ export default function DirectorQuizPage() {
     "loading"
   ) : (
     <QuestionPage
-      title={`Who directed ${rightAnswers[questionNumber - 1].title}?`}
+      title={`Who directed ${
+        rightAnswers[roundProgress !== 0 ? roundProgress - 1 : 3].title
+      }?`}
     />
   );
 }
