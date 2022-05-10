@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+[![Social banner for Beer Boutique](https://play-lh.googleusercontent.com/CEuBzhjSrMdLryPZvX-qxNbtpbGiGbGZHMDY1YT6pXfPAsRRKphwW2v-6hZmSz8PIMg)]()
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Welcome to Movie Quiz.
 
-## Available Scripts
+This is an App made as part of my final Group Project as a Student in Coddaiseur Coding BootCamp.
+This is a project made in 4 days from scratch using no templates or previous code.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## The idea behind the Movie Quiz.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I know that from experience and since now i have the tools i took the liberty to start a small revolution by making a new easy to use, friendly and FREE App for anyone who want to have some fun.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+**Languages and Tools:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
+<code><img height="20" src="https://seeklogo.com/images/R/redux-logo-9CA6836C12-seeklogo.com.png"></code>
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></code>
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code>
+<code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
+<code><img height='20' title='postgreSQL' src='https://user-images.githubusercontent.com/31222514/155521312-96e008ba-1d5e-409f-aaec-ca229ca275c6.jpeg'></code>
+<code><img height='20' title= 'CSS3' src='https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png'></code>
+<code><img height='20'  src='https://mui.com/static/logo.png'></code>
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+👇 **Click links to see code samples in this project** 👇
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React](s) ⭐
+- [Redux for state management]() ⭐
+- [Express as web app framework](https://github.com/Vasileios1314/beer_boutique_backend/blob/master/index.js)
+  - [REST API](https://github.com/Vasileios1314/beer_boutique_backend/tree/master/routers)
+- [Sequelize as ORM](https://github.com/Vasileios1314/beer_boutique_backend/tree/master/models)
+- [Many-to-many models](https://github.com/Vasileios1314/beer_boutique_backend/tree/master/models) ⭐
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+⭐ _New technology learned during this project_
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## App Quick OverView
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![App demo](./assets/Screen%20Recording%202022-05-10%20at%2012.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Backend server repo
 
-## Learn More
+The backend side of this project is an Express server using Sequelize. [Click here for more details]()
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Wrapping it up
 
-### Code Splitting
+**A final overview...:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 💬 Ask me about anything about the project, I am happy to chat with people or even colaborate.
+- 📫 How to reach me: [vasileios.bobonis@gmail.com](https://www.linkedin.com/in/vasileios-bomponis-a20673121/);
+- 📝 That is my : [LinkedIn](https://www.linkedin.com/in/vasileios-bomponis-a20673121/)
