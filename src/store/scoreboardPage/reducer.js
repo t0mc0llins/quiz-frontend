@@ -1,4 +1,4 @@
-import { FETCH_SCOREBOARD, POST_SCORE } from "./types";
+import { FETCH_SCOREBOARD } from "./types";
 
 const initialState = { scoreboards: [] };
 

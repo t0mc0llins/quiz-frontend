@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllMovies } from "../../store/homePage/actions";
 import { selectMovies } from "../../store/homePage/selectors";
@@ -12,20 +12,16 @@ import {
 } from "@mui/material";
 import { apiUrlPoster } from "../../config/constants";
 import "./style.css";
-// import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const dispatch = useDispatch();
   const listOfMovies = useSelector(selectMovies);
-
-  console.log("listOfMovies= ", listOfMovies);
 
   useEffect(() => {
     dispatch(fetchAllMovies());
   }, [dispatch]);
   return (
     <>
-      {/* <h1>Welcome to Movie Quiz</h1> */}
       <Container className="overlay"></Container>
       <Box className="title-box">
         <Typography className="line home-page-title" variant="h1">
@@ -56,7 +52,6 @@ export default function HomePage() {
           </ImageListItem>
         ))}
       </ImageList>
-      {/* <Button className="home-page-button">Start Game</Button> */}
     </>
   );
 }

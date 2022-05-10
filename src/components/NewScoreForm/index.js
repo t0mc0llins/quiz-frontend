@@ -1,4 +1,4 @@
-import { TextField, Box, Typography, Container } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postScore } from "../../store/scoreboardPage/actions";
@@ -12,14 +12,9 @@ export default function NewScoreForm() {
   const navigate = useNavigate();
   const [waiting, setWaiting] = useState(false);
 
-  //need to get score-data from state?(or as a props from prev-page)
   const score = useSelector(selectScore);
-  console.log(score);
   const submit = (event) => {
     event.preventDefault();
-    console.log("name= ", name);
-    // need to dispatch name and score to db
-    // need to redirect to scoreboard
     dispatch(postScore(name, score));
     setName("");
     setWaiting(true);
