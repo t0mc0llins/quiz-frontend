@@ -286,39 +286,3 @@ export async function generateDirectorQuestions(dispatch, getState) {
     // dispatch(setMessage("danger", true, error.message));
   }
 }
-
-// async function fetchFourCasts() {
-//   // dispatch(appLoading());
-//   try {
-//     const roundLength = 4;
-//     let castLists = [];
-//     let movieDetails = [];
-//     let i = 0;
-//     while (roundLength > i) {
-//       let r = Math.floor(Math.random() * 600) + 100;
-//       const responseCast = await axios.get(
-//         `https://api.themoviedb.org/3/movie/${r}/credits?api_key=${apiKey}&language=en-US`
-//       );
-//       console.log(responseCast);
-//       if (
-//         responseCast.status === 200 &&
-//         castLists.indexOf(responseCast.data.cast) === -1
-//       ) {
-//         const responseDetails = await axios.get(
-//           `https://api.themoviedb.org/3/movie/${r}?api_key=${apiKey}&language=en-US`
-//         );
-//         const cast = responseCast.data.cast;
-//         const details = responseDetails.data;
-//         castLists.push(cast);
-//         movieDetails.push(details);
-//         i++;
-//       }
-//     }
-//     return { casts: castLists, details: movieDetails };
-//     // dispatch(appDoneLoading());
-//   } catch (error) {
-//     console.log(error.message);
-//     // dispatch(setMessage("danger", true, error.message));
-//   }
-//   // dispatch(appDoneLoading());
-// }

@@ -134,7 +134,6 @@ const SpinningWheel = () => {
     if (state.spinning) {
       setTimeout(() => {
         const results = getResult(state.rotate);
-        console.log(results);
         setState({
           ...state,
           spinning: false,
@@ -202,8 +201,6 @@ const SpinningWheel = () => {
         {options[state.result].text}
       </Link>
     ) : null;
-
-  console.log("result", state.result);
 
   return (
     <div>

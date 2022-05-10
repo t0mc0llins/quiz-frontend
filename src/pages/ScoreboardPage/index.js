@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllScores } from "../../store/scoreboardPage/actions";
 import { selectScoreboard } from "../../store/scoreboardPage/selectors";
@@ -20,19 +20,17 @@ export default function ScoreboardPage() {
   const scoreboard = useSelector(selectScoreboard);
 
   useEffect(() => {
-    console.log(scoreboard);
-  }, [scoreboard]);
-
-  useEffect(() => {
-    console.log("IM FETCHING THE SCORES!");
     dispatch(fetchAllScores());
   }, []);
 
   return (
     <Container className="table-container">
+      <Box mb={7} className="title">
+        HIGH SCORES{" "}
+      </Box>
       <TableContainer>
         <Table size="small">
-          <TableHead className="table-head">HIGH SCORES</TableHead>
+          <TableHead className="table-head" />
           <TableBody>
             {scoreboard.map((item) => (
               <TableRow key={item.id}>
