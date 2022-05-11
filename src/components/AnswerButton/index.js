@@ -84,7 +84,7 @@ export default function RowAndColumnSpacing() {
       }
 
       createInterval();
-    }, 1000);
+    }, 1500);
   };
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import { FETCH_QUESTION, FETCH_USER_ANSWER } from "./actions";
 import { FETCH_CATEGORIES } from "./types";
 
 const initialState = {
-  categories: ["Actor", "Year", "Director", "Oddone out"],
+  categories: ["Actor", "Year", "Director", "Odd one out"],
 };
 
 export default function gamePageReducer(state = initialState, action) {
