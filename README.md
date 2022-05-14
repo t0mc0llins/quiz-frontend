@@ -48,13 +48,3 @@ I know that from experience and since now i have the tools i took the liberty to
 ## Backend server repo
 
 The backend side of this project is an Express server using Sequelize. [Click here for more details]()
-
----
-
-## Wrapping it up
-
-**A final overview...:**
-
-- 💬 Ask me about anything about the project, I am happy to chat with people or even colaborate.
-- 📫 How to reach me: [tomcollins93@gmail.com](tomcollins93@gmail.com);
-- 📝 That is my : [LinkedIn](https://www.linkedin.com/in/vasileios-bomponis-a20673121/)
