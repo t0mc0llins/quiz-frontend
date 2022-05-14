@@ -24,21 +24,6 @@ I know that from experience and since now i have the tools i took the liberty to
 <code><img height='20' title= 'CSS3' src='https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png'></code>
 <code><img height='20'  src='https://mui.com/static/logo.png'></code>
 
----
-
-👇 **Click links to see code samples in this project** 👇
-
-- [React](s) ⭐
-- [Redux for state management]() ⭐
-- [Express as web app framework](https://github.com/Vasileios1314/beer_boutique_backend/blob/master/index.js)
-  - [REST API](https://github.com/Vasileios1314/beer_boutique_backend/tree/master/routers)
-- [Sequelize as ORM](https://github.com/Vasileios1314/beer_boutique_backend/tree/master/models)
-- [Many-to-many models](https://github.com/Vasileios1314/beer_boutique_backend/tree/master/models) ⭐
-
-⭐ _New technology learned during this project_
-
----
-
 ## App Quick OverView
 
 ![App demo](./assets/Screen%20Recording%202022-05-10%20at%2012.gif)
