@@ -47,4 +47,4 @@ I know that from experience and since now i have the tools i took the liberty to
 
 ## Backend server repo
 
-The backend side of this project is an Express server using Sequelize. [Click here for more details]()
+The backend side of this project is an Express server using Sequelize. [Click here for more details](https://github.com/t0mc0llins/movie-quiz-backend)
