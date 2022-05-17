@@ -1,6 +1,6 @@
 [![Social banner for Beer Boutique](https://play-lh.googleusercontent.com/CEuBzhjSrMdLryPZvX-qxNbtpbGiGbGZHMDY1YT6pXfPAsRRKphwW2v-6hZmSz8PIMg)]()
 
-## Welcome to Movie Quiz.
+## The Movie Quiz.
 
 This is an App made as part of my final Group Project as a Student in Coddaiseur Coding BootCamp.
 This is a project made in 4 days from scratch using no templates or previous code.
