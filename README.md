@@ -2,7 +2,7 @@
 
 ## The Movie Quiz.
 
-The Movie Quiz is an app which generates randomized movie trivia quizes using data from a movie database API.
+The Movie Quiz is an app which generates randomized movie trivia quizes using data from a movie database API. [Click here to play!](https://moviequizgame.netlify.app/)
 
 This project was completed in a group with [Alina Kovaleva](https://github.com/Alina-Kovaleva), [Pooja Dalai](https://github.com/poojadalai), and [Vasileios Bomponis](https://github.com/Vasileios1314).
 
