@@ -33,6 +33,8 @@ Questions can take four possible formats: "Which of these actors was in this mov
 
 ## App Quick OverView
 
+- A quiz consists of 3 rounds of 4 questions. The question category out of the 4 possible categories is chosen by spinning a wheel at the start of each round.
+
 ![App demo](./assets/Screen%20Recording%202022-05-10%20at%2012.gif)
 
 ---
