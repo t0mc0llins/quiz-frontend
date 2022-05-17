@@ -8,7 +8,7 @@ The Movie Quiz is an app which generates randomized movie trivia quizes using da
 
 This project was completed in a group with [Alina Kovaleva](https://github.com/Alina-Kovaleva), [Pooja Dalai](https://github.com/poojadalai), and [Vasileios Bomponis](https://github.com/Vasileios1314).
 
-This is a full stack app which includes a [back-end](https://github.com/t0mc0llins/movie-quiz-backend), however it is very basic consiting only of routes to view the scoreboard and post high scores.
+This is a full stack app which includes a [back-end](https://github.com/t0mc0llins/movie-quiz-backend), however it is very basic consisting only of routes to view the scoreboard and post high scores.
 
 ---
 
