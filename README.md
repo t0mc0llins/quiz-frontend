@@ -14,7 +14,7 @@ This is a full stack app which includes a [back-end](https://github.com/t0mc0lli
 
 My most significant contribution to this project was writing the logic to fetch data from the [Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) and then generating multiple choice questions from this data.
 
-Questions can take four possible formats: Which of these actors was in this movie?, What year did this movie release?, Which of these actors was not in this movie? and Who directed this movie?
+Questions can take four possible formats: "Which of these actors was in this movie?", "What year did this movie release?", "Which of these actors was NOT in this movie?" and "Who directed this movie?".
 
 ---
 
