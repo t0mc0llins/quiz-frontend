@@ -2,8 +2,9 @@
 
 ## The Movie Quiz.
 
-This is an App made as part of my final Group Project as a Student in Coddaiseur Coding BootCamp.
-This is a project made in 4 days from scratch using no templates or previous code.
+The Movie Quiz is an app which generates randomized movie trivia quizes using data from a movie database API.
+
+This project was completed in a group with [Alina Kovaleva](https://github.com/Alina-Kovaleva), [Pooja Dalai](https://github.com/poojadalai), and [Vasileios Bomponis](https://github.com/Vasileios1314).
 
 ---
 
