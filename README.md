@@ -33,7 +33,11 @@ Questions can take four possible formats: "Which of these actors was in this mov
 
 ## App Quick OverView
 
-- A quiz consists of 3 rounds of 4 questions. The question category out of the 4 possible categories is chosen by spinning a wheel at the start of each round.
+- A quiz consists of 3 rounds of 4 questions
+- The question category out of the 4 possible categories is chosen by spinning a wheel at the start of each round
+- The player has 10 seconds to answer the question
+- Once the player has either answered a question or run out of time the corrent and incorrect answers are shown by an animatiion
+- At the end of the game, the player can post thier score and view it on the scoreboard
 
 ![App demo](./assets/Screen%20Recording%202022-05-10%20at%2012.gif)
 
