@@ -1,4 +1,4 @@
-[![Social banner for Beer Boutique](https://play-lh.googleusercontent.com/CEuBzhjSrMdLryPZvX-qxNbtpbGiGbGZHMDY1YT6pXfPAsRRKphwW2v-6hZmSz8PIMg)]()
+<img src="https://play-lh.googleusercontent.com/CEuBzhjSrMdLryPZvX-qxNbtpbGiGbGZHMDY1YT6pXfPAsRRKphwW2v-6hZmSz8PIMg">
 
 ## The Movie Quiz.
 
