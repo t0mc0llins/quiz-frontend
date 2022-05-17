@@ -10,9 +10,11 @@ This is a full stack app which includes a [back-end](https://github.com/t0mc0lli
 
 ---
 
-## The idea behind the Movie Quiz.
+## My contribution
 
-I know that from experience and since now i have the tools i took the liberty to start a small revolution by making a new easy to use, friendly and FREE App for anyone who want to have some fun.
+My most significant contribution to this project was writing the logic to fetch data from the [Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction) and then generating multiple choice questions from this data.
+
+Questions can take four possible formats: Which of these actors was in this movie?, What year did this movie release?, Which of these actors was not in this movie? and Who directed this movie?
 
 ---
 
