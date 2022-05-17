@@ -40,9 +40,3 @@ Questions can take four possible formats: "Which of these actors was in this mov
 - At the end of the game, the player can post thier score and view it on the scoreboard
 
 ![App demo](./assets/Screen%20Recording%202022-05-10%20at%2012.gif)
-
----
-
-## Backend server repo
-
-The backend side of this project is an Express server using Sequelize. [Click here for more details](https://github.com/t0mc0llins/movie-quiz-backend)
